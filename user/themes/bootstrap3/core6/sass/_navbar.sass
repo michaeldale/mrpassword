@@ -1,0 +1,149 @@
+// Navbar height
+$nav-height: 50px
+// Navbar brand img
+$nav-image: url(../img/headimg.png)
+
+.navbar-default
+    border-top: none
+    border-left: none
+    border-right: none
+    border-radius: 0px
+    margin-left: auto
+    margin-right: auto
+
+.navbar
+    height: $nav-height
+    margin-bottom: 0
+    padding-top: 0
+    background-color: $nav-background
+    border: none !important
+    a
+        font-family: Arial, Helvetica, sans-serif
+    .navbar-right
+        padding-right: 15px
+        a
+            text-align: right
+            margin-right: 0
+        ul
+            li
+                a
+                    text-align: left
+        .divider
+            background-color: transparent
+    .navbar-header
+        height: $nav-height
+        .navbar-toggle
+            margin-top: 8px
+            border: none
+            background-color: $white
+            .icon-bar
+                background-color: $nav-background-dark
+            &:hover, &:active
+                background-color: $nav-background-dark
+                .icon-bar
+                    background-color: $white
+    .navbar-brand
+        font-family: Arial, Helvetica, sans-serif
+        padding: 0 10px 0 10px !important
+        font-weight: normal !important
+        height: $nav-height
+        line-height: $nav-height
+        &.largeimage
+            line-height: 0
+            color: transparent !important
+            img
+                padding: 0
+                height: $nav-height - 10
+                margin: 0 10px
+        &.smallimage
+            img
+                display: inline
+                height: $nav-height - 10
+                margin-top: -5px
+    .navbar-nav
+        margin-left: 0px
+        margin-right: 0px
+        height: 100%
+    ul
+        li
+            a
+                color: $white
+                background-color: $nav-background
+                border: 0
+                height: $nav-height
+                margin-top: 0
+                &:hover, &:active, &:focus
+                    color: $white
+                    background-color: $nav-background-dark
+                &.a-small-text
+                    font-size: 12px
+        .active
+            a
+                background-color: lighten($grey-lightest, 2) !important
+                color: $primary  !important
+                &:hover, &:active, &:focus
+                    color: $primary !important
+                    background-color: lighten($grey-lightest, 2) !important
+                    border-bottom: none !important
+            ul
+                li
+                    a
+                        color: $primary !important
+                        border: none
+                        padding: 2px 10px 2px 20px
+                        margin: 0
+                        +border-radius(0)
+    .navbar-default
+        .navbar-collapse, .navbar-form
+            border: none
+    .dropdown
+        .dropdown-toggle:focus,
+        .dropdown-toggle:focus.open a,
+        .dropdown-toggle:focus.open a:hover,
+        .dropdown-toggle:focus.open a:focus
+            border-bottom: 0 !important
+            +transition(0.3s ease all)
+            color: $primary !important
+            background: $white !important
+    .open a
+        background: $white !important
+        color: $primary !important
+    .dropdown.active.open
+        .dropdown-toggle:focus,
+        .dropdown-toggle:focus.open a,
+        .dropdown-toggle:focus.open a:hover,
+        .dropdown-toggle:focus.open a:focus
+            border-bottom: 0 !important
+            +transition(0.3s ease all)
+            color: $primary !important
+            background: $white !important
+    .dropdown,
+    .dropdown.active.open
+        .dropdown-menu
+            border: none
+            background: $white
+            +box-shadow(0 1px 2px  #ccc)
+            padding-top: 0
+            padding-bottom: 0
+            li
+                a
+                    color: $primary !important
+                    background-color: $white !important
+                    border-bottom: 1px solid $grey-lightest !important
+                    height: auto !important
+                    border: 0
+                    padding: 2px 10px 2px 10px
+                    margin: 0
+                    +border-radius(0)
+                    &:hover, &:active, &:focus
+                        border-bottom: 1px solid $grey-light !important
+                        background-color: $grey-lightest !important
+                        color: $grey-darkest !important
+                        border: 0
+                    .glyphicon
+                        font-size: 12px
+                &.logout-button
+                    a
+                        padding: 5px 10px 5px 10px
+            .divider
+                border-color: transparent

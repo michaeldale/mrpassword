@@ -1,0 +1,194 @@
+.btn
+    +transition(all ease 0.3s)
+    +border-radius(2px)
+    border-right: 1px solid
+    border-bottom: 2px solid
+    font-weight: 300
+    &:hover, &:focus, &:active
+        outline: 0 !important
+        +transition(all ease 0.3s !important)
+    &:active, &.active
+        +box-shadow(0 2px 1px rgba($grey-light, 0.5) !important)
+
+.pagination
+    .btn-success
+        margin-left: 5px
+        color: $white
+        @extend .btn-success
+        &:hover
+            color: $white
+            @extend .btn-success:hover
+        &:active
+            color: $white
+            @extend .btn-success:active
+        &:focus
+            color: $white
+            @extend .btn-success:focus
+
+// Button widths
+.btn-100
+    width: 100%
+.btn-50
+    width: 49%
+.btn-25
+    width: 24%
+.btn-33
+    width: 32%
+// Button floats + margins
+.btn-l
+    float: left
+    margin-right: 1%
+.btn.r
+    float: right
+    margin-left: 1%
+
+
+// Button group widths
+.btn-group
+    .btn-50, .btn-25, .btn-33
+        margin: none !important
+.btn-group-50,
+.btn-group-33,
+.btn-group-25,
+    width: 100%
+    .btn
+        float: left
+.btn-group-50
+    .btn
+        width: 50%
+        + .btn
+            margin-left: -1px
+            border-left: none
+.btn-group-33
+    .btn
+        width: 33%
+.btn-group-25
+    .btn
+        width: 25%
+// 1->2 button group
+// [            ]
+// [     ][     ]
+@mixin group-split($foo)
+    .btn-group-1-2
+        .btn:first-child
+            width: 100%
+            border-bottom-width: 1px
+            +border-radius(2px 2px 0 0)
+            &:active, &:focus
+                +box-shadow(0 0 0 transparent !important)
+        .btn:nth-child(2),
+        .btn:nth-child(3)
+            width: 50%
+        .btn:nth-child(2)
+            border-top: 0
+            float: left
+            +border-radius(0 0 0 2px)
+        .btn:nth-child(3)
+            border-top: 0
+            margin-left: -1px
+            border-left: 0
+            float: right
+            +border-radius(0 0 2px 0)
+@mixin group-fullwidth($foo)
+    .btn-group-1-2
+        .btn:nth-child(odd),
+        .btn:nth-child(even)
+            width: 100% !important
+            border-width: 1px !important
+    .btn-group-1-2
+        .btn:first-child
+            +border-radius(2px 2px 0 0)
+        .btn:nth-child(2)
+            border-top: 0
+            +border-radius(0)
+        .btn:nth-child(3)
+            border-top: 0
+            +border-radius(0 0 2px 2px)
+
+@media all and (min-width: 1301px)
+    +group-split(1)
+@media all and (min-width:992px) and (max-width: 1300px)
+    +group-fullwidth(1)
+@media all and (min-width:421px) and (max-width: 991px)
+    +group-split(1)
+@media all and (max-width: 420px)
+    +group-fullwidth(1)
+
+// Mobile only button widths
+@media all and (max-width: 976px)
+    .btn-100-m
+        width: 100%
+    .btn-50-m
+        width: 49%
+    .btn-25-m
+        width: 24%
+    .btn-33-m
+        width: 32%
+    .btn-group-50-m,
+    .btn-group-33-m,
+    .btn-group-25-m,
+        width: 100%
+        .btn
+            float: left
+    .btn-group-50-m
+        .btn
+            width: 49%
+    .btn-group-33-m
+        .btn
+            width: 32%
+            margin : 0 !important
+            &:first-child
+                margin: 0 2% 0 0 !important
+            &:last-child
+                margin: 0 0 0 2% !important
+    .btn-group-25-m
+        .btn
+            width: 24%
+
+
+// Ticket toggle btn-group fix
+td
+    &[data-title="Select"]
+        padding: 0 3px 0 3px !important
+        vertical-align: middle !important
+        .btn-group
+            .btn:active
+                +transition(all 0.1s ease !important)
+            .btn-success.btn-default:hover
+                color: $white !important
+
+// Plugin enable/disable button hover
+.plugin-buttons
+    .btn-success
+        &:hover
+            @extend .btn-danger
+    .btn-danger
+        &:hover
+            background-color: $green-dark
+            border-color: $green-b-dark
+
+.btn-group
+    .btn
+        padding: 5px 10px 5px 10px
+        &:active, &.active
+            +box-shadow(0 0 0 transparent !important)
+        &+ .btn
+            margin-left: -1px !important
+            &:hover
+                margin-left: -1px !important
+    .btn-default
+        background: $white
+        border-color: #ddd !important
+        color: $grey-darker
+        +transition(0s ease none !important)
+        &:hover, &:focus
+            +transition(0s ease none !important)
+            background: $primary !important
+            border-color: $primary-b !important
+            color: $white
+    .btn-success.active
+        +border-radius(2px 0 2px 0 !important)
+        background-color: $green-darker !important
+        border-color: $green-b-darker !important
+        color: $white !important
+

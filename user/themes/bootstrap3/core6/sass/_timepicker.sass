@@ -1,0 +1,51 @@
+.datepicker
+	background-color: $grey-lightest
+.bootstrap-datetimepicker-widget
+	overflow: visible
+	border: 0px !important
+	z-index: 100
+.bootstrap-datetimepicker-widget td.today:before
+	border-bottom: 7px solid $primary !important
+.datepicker-days .active
+	background-color: $primary !important
+.timepicker
+	background: #333
+.timepicker-hour,
+.timepicker-minute,
+.timepicker .separator,
+.timepicker .glyphicon
+	color: $white
+.timepicker-hour:hover,
+.timepicker-minute:hover,
+.timepicker .glyphicon:hover
+	background: $primary !important
+	color: $white
+	transition: 0.1s ease-in-out
+.timepicker .separator
+	font-size: 16pt
+@media screen and (max-width: 768px)
+	li.picker-switch.accordion-toggle
+		display: none !important
+	.datepicker
+		.datepicker-days
+			table
+				float: none !important
+				background-color: $grey-lightest !important
+				+box-shadow(0 0 0 transparent)
+				width: 100% !important
+				thead
+					display: table-row
+					tr
+						display: table-row
+				tbody
+					float: none !important
+					background-color: $grey-lightest !important
+					tr
+						padding: 0 !important
+						overflow: visible !important
+						position: none !important
+						+box-shadow(0 0 0 transparent)
+						+border-radius(0)
+						background: $grey-lightest !important
+						td.day
+							width: 28px !important

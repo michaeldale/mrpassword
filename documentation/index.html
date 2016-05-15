@@ -1,0 +1,389 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>Mr Password Setup Guide</title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<style type="text/css" media="screen">
+		p, table, hr, .box { margin-bottom:25px; }
+		.box p { margin-bottom:10px; }
+	</style>
+</head>
+
+
+<body>
+	<div class="container">
+	
+		<h3 class="center alt">&ldquo;Mr Password&rdquo; Documentation by &ldquo;Michael Dale&rdquo; v4.0</h3>
+		
+		<hr>
+		
+		<h1 class="center">&ldquo;Mr Password&rdquo;</h1>
+		
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Created: 4/3/2014<br>
+					By: <a href="http://codecanyon.net/user/michaeldale">Michael Dale</a><br>
+					</strong>
+				</p>
+			</div><!-- end div .span-6 -->		
+	
+			<div class="span-12 last">
+				<p class="prepend-top append-0">Thank you for purchasing Mr Password. If you have any questions that are beyond the scope of this help file, please feel free to log a support request via our <a href="http://portal.dalegroup.net/">support portal</a>. Thanks so much!</p>
+			</div>
+		</div><!-- end div .borderTop -->
+		
+		<hr>
+		
+		<h2 id="toc" class="alt">Table of Contents</h2>
+		<ol class="alpha">
+			<li><a href="#welcome">Welcome</a></li>
+			<li><a href="#features">Features</a></li>
+			<li><a href="#requirements">System Requirements</a></li>
+			<li><a href="#install">Install</a></li>
+			<li><a href="#upgrade">Upgrading</a></li>
+			<li><a href="#releaseLog">Release Log</a></li>
+			<li><a href="#credits">Credits</a></li>
+			<li><a href="#license">License</a></li>
+		</ol>
+		
+		<hr>
+		
+		<h3 id="welcome"><strong>Welcome</strong> - <a href="#toc">top</a></h3>
+	
+		<p>Welcome to Mr Password also known as MrP.</p>
+	
+		<p><img src="assets/images/mrp.png" alt="Passwords" /></p>
+
+		<p>MrP is an online multi user password manager.</p>
+		
+		<p>It is great for users and businesses who wish to keep their passwords in a secure manner.</p>
+		
+		<p>You can create multiple users each with their own password list. Users can manage their own categories, generate passwords and even share specific categories with other users.</p>
+				
+		<p>MrP supports the English Language only.</p>
+		
+		<p>MrP is designed to be a stand alone web application, you are of course welcome to modify the code, but I cannot support modified code if it breaks.</p>
+		
+		<p>Whenever a new version of MrP is released an upgrade script is included (more below), please make sure you keep MrP up to date.</p>
+		
+		<p>Please note: If you modify the MrP code the upgrade script may fail. It will be up to you to fix this if a problem occurs. You must support your own code changes.</p>
+	
+		<hr>
+
+		<h3 id="features"><strong>Features</strong> - <a href="#toc">top</a></h3>
+		
+		<p>MrP includes a number of features.</p>
+		
+		<ol>
+			<li>Password Storage</li>
+			<li>Multiple Users</li>
+			<li>Security Logging</li>
+			<li>Password Generator</li>
+			<li>Password Categories</li>
+			<li>Password Custom Fields</li>
+			<li>Password History</li>
+			<li>Sharing Categories</li>
+			<li>Brute Force Login Protection</li>
+			<li>Active Directory and LDAP Authentication Support (great for businesses)</li>
+			
+		</ol>
+		
+
+		<hr>
+
+		
+		<h3 id="requirements"><strong>System Requirements</strong> - <a href="#toc">top</a></h3>
+
+		<p>MrP is written in PHP5.3 and uses a MySQL5 database. MrP is a "Web Application" that must be installed on a Web Server. MrP will do a basic check of your web server during the install.</p>
+
+		<p>You must install MrP on a web host that supports PHP5.3, MySQL5 and Apache.</p>
+		
+		<p>You may also install MrP on your personal computer by using one of the many options (i.e google WAMPserver or XAMPP), this is not covered in this document.</p>
+		
+		<p>The full system requirements can be found below.</p>
+		<ul>
+			<li>PHP 5.3+</li>
+			<li>MySQL 5+ with 1 empty database</li>
+			<li>Apache (with mod rewrite enabled)</li>
+			<li>A Web Browser that supports HTML5/Javascript (for the client)</li>
+			<li>PHP able to write files to the installed directory (only required for install)</li>
+			<li>PHP PDO Extension (with MySQL driver)</li>
+			<li>PHP Mcrypt Extension</li>
+			<li>PHP LDAP Extension (only required when using Active Directory)</li>
+		</ul>
+
+		<hr>
+		
+		<h3 id="install"><strong>Install</strong> - <a href="#toc">top</a></h3>
+		
+		<p>There are a number of steps required to install MrP.</p>
+		
+		<ol>
+			<li>Copy the unzipped contents of the zip file to somewhere on your webserver. You can install MrP in a folder on your existing web hosting or setup a new subdomain.</li>
+			<li>Create an empty MySQL database (most hosting provides a control panel that allows you to do this).</li>
+			<li>Ensure your PHP install can create files (for config.php to be created during the install).</li>
+			<li>Run http://mrp.example.com/install/ from your web browser.</li>
+			<li>Follow the steps.</li>
+			<li>Backup your MySQL database and user/settings/config.php file.</li>
+			<li>Setup a process to visit http://mrp.example.com/cron/ every 5 minutes (more info below).</li>
+			<li>Done</li>
+		</ol>
+		
+		<hr>
+		
+		<h3 id="cron"><strong>CRON Setup</strong> - <a href="#toc">top</a></h3>
+		
+		<p>The cron system allows MrP to check for updates and expire old sessions (and other tasks) in the background.</p>
+		
+		<p>There are a number of ways to set this up. The best method is to use a Linux Cron style setup on the server itself. This will be the most reliable method.</p>
+		
+		<p>Although you can use one of the many free web cron services.</p>
+		
+		<h4>Linux Cron</h4>
+		
+		<ol>
+			<li>Type crontab -e in your linux command line.</li>
+			<li>Type in the following: */5 * * * * wget -q -O /dev/null "http://mrp.example.com/cron/"</li>
+			<li>Save</li>
+			<li>crontab -l should now list the cron process</p>
+		</ol>
+		
+		<p>If you do not have access to the command line you might have access to the web hosting control panel that should allow this. Otherwise talk with your webhost.</p>
+	
+		<h4>Windows Scheduled Task</h4>
+		
+		<p>Windows supports the same type of CRON process through the use of a Scheduled Task and a 3rd party wget program.</p>
+		
+		<p><a href="http://gnuwin32.sourceforge.net/packages/wget.htm">Wget for Windows</a></p>
+	
+		<hr>
+		
+		<h3 id="upgrade"><strong>Upgrading</strong> - <a href="#toc">top</a></h3>
+		
+		<p>Upgrading is pretty easy.</p>
+		
+		<ol>
+			<li>Download the latest version of the MrP zip file</li>
+			<li>Backup your MySQL database, config.php file and .htaccess file.</li>
+			<li>Backup any custom code or changes you have made (this will be overwritten).</li>
+			<li>Unzip the new install onto your local computer.</li>
+			<li>Delete the install/ folder.</li>
+			<li>Upload this to your existing install of MrP replacing all existing files.</li>
+			<li>Login</li>
+			<li>Run the database upgrade from the dashboard (or run http://mrp.example.com/upgrade/).</li>
+		</ol>
+				
+		<p><img src="assets/images/upgrade.png" alt="Upgrade" /></p>
+				
+		<hr>
+		
+		<h3 id="releaseLog"><strong>Release Log</strong> - <a href="#toc">top</a></h3>
+		
+				
+		<p>Key</p>
+<pre>
++ New Feature
+* Bug Fix
+- Other Change
+</pre>		
+
+		<p>Version 3.1</p>
+
+		<ul>
+			<li>+ File Attachment Support (!!FILES ARE NOT ENCRYPTED!!, also this feature does not support history, shares or global categories).</li>
+			<li>+ Show Category in password list.</li>
+			<li>+ Sort by Category.</li>
+			<li>+ You can now search logs.</li>
+			<li>+ You can now filter logs per user.</li>
+			<li>+ Name of user is now displayed next to logs.</li>
+			<li>- Switched to wide layout.</li>
+			<li>- Upgraded to Bootstrap 3.1.1.</li>
+			<li>- Upgraded HTMLPurifier to version 4.6.0.</li>
+			<li>- Upgraded JQuery to version 1.11.</li>
+			<li>- Upgraded Chosen to version 1.1.</li>
+			<li>- Framework Upgrades.</li>
+			<li>* HTML bug fixes and improvements.</li>
+			<li>* PHP Notice/Warning fixes.</li>
+		</ul>		
+
+		<p>Version 3.0</p>
+
+		<p>
+			<strong>
+				This is the last version to support the standard theme.
+			</strong>
+		</p>
+
+		<ul>
+			<li>+ All new responsive interface using Bootstrap 3.</li>
+			<li>+ Custom JSON Authentication for use with external systems.</li>
+			<li>+ Chosen select dropdown library added (Bootstrap theme only).</li>
+			<li>* Bug fixes to Global Category Administration (not all admin users could edit existing categories).</li>
+			<li>- Fixes to some missing language translation tokens.</li>
+			<li>- Minor improvements to the plugins page.</li>
+			<li>- Improved event logging for failed authentication for LDAP accounts.</li>
+		</ul>
+		
+		<p>Version 2.1</p>
+		
+		<ul>
+			<li>+ Global Categories for storing passwords.</li>
+			<li>+ Auto Updater System.</li>
+			<li>+ Option to enable Anti-Spam Captcha for Login and Forgot Password pages.</li>
+			<li>- Improved password encryption system (for users upgrading please read this <a href="http://portal.dalegroup.net/public/kb_view/21/">article</a>).</li> 
+			<li>- Upgraded HTMLPurifier to version 4.5.0.</li>
+			<li>- Upgraded JQuery to version 1.9.1.</li>
+			<li>* Fixes to some PHP notices.</li>
+		</ul>
+		
+		<p>Version 2.0.1</p>
+		
+		<ul>
+			<li>+ You can now edit custom field values on the edit password page.</li>
+			<li>- Set LDAP timeout to 5 seconds.</li>
+			<li>* Bug fixes.</li>
+		</ul>
+
+		<p>Version 2.0</p>
+		
+		<ul>
+			<li>+ Language Translation Support (through a single file).</li>
+			<li>+ Timezone Support</li>
+			<li>+ User Search</li>
+			<li>+ Auto prune old logs after 100,000 logs (once a week).</li>
+			<li>+ Auto database optimise (once a month).</li>
+			<li>+ Plugins Support</li>
+			<li>+ Global Custom Fields</li>
+			<li>+ Anti-Spam Captcha (for user registration).</li>
+			<li>+ Welcome Email when creating new users.</li>
+			<li>+ LDAP Authentication Support (tested with OpenLDAP 2.4.31-1ubuntu2)</li>
+			<li>- Improved Installer</li>
+			<li>- Upgraded JQuery to 1.8.2</li>
+			<li>- Upgraded adldap to 4.0.4</li>
+			<li>* MySQL strict mode fixes when using Active Directory.</li>
+			<li>* Fixed password history display order.</li>
+			<li>* Fixed PHP strict notices.</li>
+		</ul>
+
+		<p>Version 1.7.1</p>
+		
+		<ul>
+			<li>* Now installs when MySQL strict mode is enabled.</li>
+		</ul>
+		
+		<p>Version 1.7</p>
+
+		<ul>
+			<li>+ Password Search</li>
+			<li>+ Paging and Filtering Logs</li>
+			<li>- Passwords are now ordered by name</li>
+			<li>- Interface Tweaks</li>
+			<li>* Minor bug fixes and updates.</li>
+		</ul>		
+		
+		<p>Version 1.6</p>
+		
+		<ul>
+			<li>+ Updated Interface (now the same design as Tickets 1.5).</li>
+			<li>+ Update Checker.</li>
+			<li>+ Profile Page (to allow users to change password when logged in).</li>
+			<li>+ Cron System (used for session garbage collection and updated checker).</li>
+		</ul>
+
+		<p>Version 1.5</p>
+		
+		<ul>
+			<li>+ Password History now stored for all passwords</li>
+			<li>+ Automatic Date Added and Update values for passwords.</li>
+			<li>+ SMTP Support (only used/needed for Forgot Password at this stage).</li>
+			<li>+ Default URL Field has been added (and clickable when a URL is inserted).</li>
+			<li>+ Forgot/Reset Password.</li>
+			<li>+ HTML Purifier on Message output, Login Message and Logs for increased security.</li>
+			<li>* HTML Fixes to Installer.</p>
+		</ul>
+
+		<p>Version 1.4</p>
+		
+		<ul>
+			<li>+ Updated Interface (now the same design as Tickets).</li>
+			<li>+ User Registration (disabled by default).</li>
+			<li>- Framework Update (to match the latest improvements and changes from Tickets).</li>
+		</ul>
+
+		<p>Version 1.3</p>
+		
+		<ul>
+			<li>+ When sharing a category you can now allow another user permission to add and edit passwords in that category.</li>
+			<li>+ You can now set a message to be displayed on the login page.</li>
+			<li>* Bug fixes.</li>
+			<li>- Minor tweaks and improvements.</li>
+		</ul>
+
+		<p>Version 1.2</p>
+		
+		<ul>
+			<li>+ Passwords now hidden by default with an ajax show password link instead.</li>
+			<li>+ Unlimited number of custom fields for Passwords.</li>
+			<li>+ After login you are now taken to the page requested.</li>
+			<li>+ Account failed login protection (enabled from settings page).</li>
+			<li>* Fixed bug where IE users were unable to login.</li>
+			<li>- Minor tweaks and improvements.</li>
+		</ul>
+		
+		<p>Version 1.1</p>
+		
+		<ul>
+			<li>+ Active Directory authentication now supported.</li>
+			<li>* Minor Fixes.</li>
+		</ul>
+
+		<p>Version 1.0</p>
+		
+		<ul>
+			<li>Released.</li>
+		</ul>
+		
+		<br />	
+		
+		<h3 id="credits"><strong>Credits</strong> - <a href="#toc">top</a></h3>
+		
+		<ul>
+			<li>Michael Dale - Developer</li>
+		</ul>
+		
+		<hr>
+		
+		<h3 id="support"><strong>Support</strong> - <a href="#toc">top</a></h3>
+		
+		<p>We have our own support portal that includes a support ticket system and forums, please register here for all support requests.</p>
+		
+		<p class="center"><a href="http://portal.dalegroup.net">Dalegroup Support Portal</a></p>
+						
+		<hr>	
+		
+		<h3 id="license"><strong>License</strong> - <a href="#toc">top</a></h3>
+		
+		<p>This program was developed by Dalegroup Pty Ltd and is copyrighted.</p>
+		
+		<p>THIS SOFTWARE AND THE ACCOMPANYING FILES ARE PROVIDED "AS IS" AND WITHOUT WARRANTIES OF ANY KIND WHETHER EXPRESSED OR IMPLIED.</p>
+		<p>In no event shall the author or Dalegroup Pty Ltd be held liable for any damages whatsoever, including without limitation, damages for loss of business profits, business interruption, loss of business information, or any other loss arising from the use or inability to use the software.</p>
+		
+		<p><strong>Your purchase of MrP allows you to install a SINGLE (one) copy of MrP on ONE server. You may not resell, distribute or rent MrP.</strong></p>
+	
+		<hr>
+		
+		<p>Once again, thank you so much for purchasing this web application. As I said at the beginning, I'd be glad to help you if you have any questions relating to MrP. No guarantees, but I'll do my best to assist.</p> 
+		
+		<p class="append-bottom alt large"><strong>Michael Dale</strong></p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		
+		<hr class="space">
+	</div><!-- end div .container -->
+</body>
+</html>

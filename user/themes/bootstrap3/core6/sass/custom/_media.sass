@@ -1,0 +1,54 @@
+@media screen and (max-width: 768px)
+	.navbar
+		+transition(0.5s ease all)
+		.navbar-header
+			position: relative !important
+			z-index: 5 !important
+	.navbar.open
+		+transition(0s)
+		border-bottom: 0 solid $grey-lighter
+	.navbar-collapse
+		position: relative !important
+		z-index: 0 !important
+		width: 100%
+		padding-left: 0
+		padding-right: 0
+		background: $white
+		border-bottom: 2px solid $primary-lighter !important
+		.navbar-nav
+			margin: 0
+			li
+				a
+					+transition(.5s ease all)
+					padding-bottom: 5px
+					border: 0
+					border-bottom: 1px solid $grey-lighter
+					margin-top: 0px
+					margin-right: 0
+					+border-radius(0)
+					padding: 12px 16px 12px 16px
+					&:hover, &:active, &:focus
+						border: 0
+						color: $secondary-light
+						border-bottom: 1px solid $grey-light
+						background-color: $grey-lightest
+					&.active
+						a
+							margin-top: 0px
+							border-bottom: 0 !important
+			.dropdown.open
+				.dropdown-menu
+					padding-top: 0
+				li
+					padding-bottom: 0
+				li a
+					margin-top: 0
+					margin-bottom: 0
+				.dropdown-toggle
+					+transition(0.3s ease all)
+					border: 0
+					color: $white !important
+					border-bottom: none
+					background-color: $secondary-light !important
+			&.navbar-right
+				padding-right: 0

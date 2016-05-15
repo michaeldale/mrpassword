@@ -1,0 +1,85 @@
+#no-more-tables
+    th.thin-column
+        width: 65px
+    .btn-group
+        float: none
+
+.well, .panel
+    .table
+        background: $background
+        +box-shadow(0 0 0 transparent)
+
+// Datatables
+.dataTables_wrapper
+    .dataTables_filter
+        input
+            border: 1px solid $grey-lighter
+            outline: 0
+            padding: 10px
+            margin-top: 5px
+            margin-right: 5px
+    .dataTables_info
+        padding: 10px
+table.dataTable
+    +box-shadow(0 0 0 transparent)
+    border-bottom: 0 !important
+    thead
+        th
+            border-bottom: 0 !important
+
+// All tables
+.table
+    background: $background
+    +box-shadow(0 1px 2px #ccc)
+    +border-radius(2px)
+    th, td
+        max-width: 25em
+        text-align: center
+    tr:first-child
+        td
+            border-top: 0px !important
+    tr:nth-child(odd)
+        background: $background
+        .btn-group
+            .btn-default
+                background: $white
+    tr:nth-child(even)
+        background: $white !important
+        .btn-group
+            .btn-default
+                background: #f9f9f9
+    thead
+        tr
+            th
+                border-width: 1px !important
+                border-left: 0 !important
+                border-right: 0 !important
+    tfoot
+        tr
+            th
+                border-width: 1px !important
+                border-left: 0 !important
+                border-right: 0 !important
+                border-bottom: 0 !important
+    tbody
+        tr
+            td
+                &[style^="background-color: #"]
+                    border-top: none !important
+                    border-bottom: none !important
+                    border-right: none !important
+                &:first-child
+                    border-left: 0
+                &:last-child
+                    border-right: 0
+
+.table-bed
+    border: 1px solid $grey-light
+
+// sideways scroll fix
+td
+    max-width: 35em
+    word-wrap: break-word
+
+.table-bed > thead > tr > th
+    border-bottom: 0

@@ -1,0 +1,295 @@
+// Images
+$background-image: url()
+// Footer height
+$foot-height: 53px
+
+.container
+    padding-top: 20px
+    margin: 0 auto
+    width: 100%
+    overflow: visible
+
+html, body
+    min-height: 100%
+
+body
+    position: relative
+    padding-top: $nav-height
+    word-wrap: break-word
+    h3
+        font-size: 21px
+
+p
+    font-size: 15px
+
+// Link transition
+a
+    +transition(all ease 0.3s)
+    &:hover, &:focus, &:active
+        outline: 0
+        +transition(all ease 0.2s)
+    &.popover-item
+        &:hover, &:focus, &:active
+            text-decoration: none
+
+// Nopadding
+.nopad-left
+    padding-left: 0 !important
+.nopad-right
+    padding-right: 0 !important
+// Noborder
+.noborder
+    border: 0 !important
+.noborder-top
+    border-top: 0 !important
+.noborder-right
+    border-right: 0 !important
+.noborder-bottom
+    border-bottom: 0 !important
+.noborder-left
+    border-left: 0 !important
+// Nomargin
+.nomargin
+    margin: 0 !important
+.nomargin-top
+    margin: 0 !important
+.nomargin-right
+    margin-right: 0 !important
+.nomargin-bottom
+    margin-bottom: 0 !important
+.nomargin-left
+    margin-left: 0 !important
+
+.well,
+.alert,
+    background: $background
+    +box-shadow(0 1px 2px #ccc)
+    +border-radius(2px)
+
+.well
+    border: none
+
+.well, .panel
+    .left-result, .right-result
+        line-height: 21px
+    .right-result
+        clear: right
+
+.panel
+    +box-shadow(0 1px 2px #aaa)
+    +border-radius(2px)
+    border: 0
+    background: $background
+    h1.panel-title,
+        line-height: 35px
+    .panel-heading
+        position: relative
+        border: 0
+        color: $primary-dark
+        background: $background
+        .form-control
+            width: 100%
+        h1, h2, h3, h4
+            line-height: 35px
+            margin-top: 0
+            margin-bottom: 0
+        p
+            margin-bottom: 0
+    .panel-body + hr
+        margin-top: 0
+        margin-bottom: 0
+    .panel-heading + .panel-body
+        border-top: 1px solid $grey-lighter
+    .panel-body
+        width: 100%
+        h3
+            margin-top: 0
+        h4
+            padding-bottom: 5px
+            border-bottom: 1px solid $grey-lighter
+        .panel-right
+            float: right
+        .panel-left
+            float: left
+        .col-md-2
+            margin-bottom: 10px
+            .nopad-left
+                padding-left: 0
+            .select2-container
+                width: 100% !important
+                .select2-choice
+                    height: 30px
+            select
+                + .btn
+                    margin-top: 10px
+                    width: 100%
+            i[data-placement="right"]
+                position: absolute
+                right: -2px
+                top: 55%
+            input.form-control
+                width: 100%
+        input
+            height: 30px
+        &.border-bottom
+            border-bottom: 1px solid $grey-lighter
+        .redactor-box
+            border-top: 1px solid $grey-lighter
+            border-left: 1px solid $grey-lighter
+            border-right: 1px solid $grey-lighter
+    .panel-footer
+        padding: 0
+        color: $grey-dark
+        background-color: $grey-lightest
+        border-top: 1px solid $grey-lighter
+        .pull-right, .pull-left
+            padding: 10px
+        .btn-group
+            .btn
+                margin-left: 0
+                margin-right: 0
+        .btn
+            margin: 0 5px
+            &+ .btn
+                margin-left: 0
+        .custom_modal.btn
+            +border-radius(3px)
+
+.panel-btn
+    width: 100%
+
+.well-buttons, .panel-buttons
+    .btn
+        width: 100%
+        +transition(0.3s ease all)
+    .col-md-12
+        padding-top: 5px
+        padding-bottom: 10px
+        border-bottom: 1px solid $grey-lighter
+    .col-md-6
+        padding-top: 10px
+        padding-bottom: 5px
+    .col-md-6:nth-child(2)
+        padding-right: 3px
+    .col-md-6:nth-child(3)
+        padding-left: 3px
+    .col-md-4
+        padding: 3px
+
+.login-container
+    width: 36rem
+    margin: 0 auto
+.login-box
+    border-top: $primary-lighter 2px solid
+    border-bottom: $primary-light 2px solid
+    h2
+        text-align: center
+        color: $primary
+        margin: 10px 20px 20px 20px
+    .form-group
+        width: 100% !important
+        padding: 0 15px 0 15px
+        input
+            background: $white !important
+        input, .btn
+            +border-radius(0px)
+            width: 100%
+    button[name="submit"]
+        margin-bottom: 10px
+    .btn.facebook-login
+        color: #fff
+        background: lighten(#3b5998, 10)
+        border-color: #8b9dc3
+        &:hover
+            background: #3b5998
+            border-color: #8b9dc3
+    .forgot
+        padding: 0 0 10px 0
+        float: left
+        width: 100%
+        .btn
+            font-size: 75%
+            width: 100%
+            text-transform: none
+        .login-alert
+            color: $orange-dark
+            margin-top: 5px
+
+.pagination
+    margin: 0
+
+.nopadding, .nopad
+    padding: 0 !important
+    margin: 0 !important
+.marginless
+    margin-left: 0 !important
+    margin-right: 15px !important
+
+.modal-dialog
+    .modal-content
+        +border-radius(2px !important)
+        border: none
+        .nav-tabs
+            border-bottom: 0
+            li
+                a
+                    margin-bottom: 1px
+                a:hover
+                    background: $grey-lightest
+                    border-color: $grey-light
+            li.active
+                a
+                    border-color: $grey-light
+            li:nth-child(2).active a
+                background: $white
+
+        .tab-content
+            border-color: $grey-light
+
+
+.modal-open
+    .navbar-fixed-top, .navbar-fixed-bottom
+        margin-right: 0
+body.modal-open
+    margin-right: 0
+.modal.fade.in
+    background-color: rgba(0,0,0,0.7)
+.modal.in .modal-dialog
+    +transform( translate(0, $nav-height) )
+.modal.fade .modal-dialog
+    +transform( translate(0, $nav-height) )
+
+.splitscreen .well-sm
+    .col-md-6
+        margin-left: -15px !important
+        margin-bottom: 10px
+    .form-control
+        margin-top: 3px
+    .left-result
+        width: 100px
+
+.popover
+    +box-shadow(0 0 0 transparent)
+
+.gravatar img
+    +border-radius(50%)
+    border: 1px solid $grey-lighter
+
+footer
+    height: $foot-height
+    position: absolute
+    bottom: -($foot-height * 2)
+    left: 0
+    width: 100%
+    line-height: 7pt
+    color: #fff
+    padding-top: 15px
+    padding-bottom: 15px
+    padding-left: 20px
+    padding-right: 20px
+    border: 0
+    background: url(../img/footimg_dk.png) no-repeat 350px -60px
+    background-color: transparent
+    border-top: 1px solid $grey-lighter
+    .text-muted, a
+        color: #999 !important

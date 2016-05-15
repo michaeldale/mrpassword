@@ -1,0 +1,91 @@
+// Autocollapse
+#autocollapse.collapsed
+    .navbar-header
+        float: none
+    .navbar-toggle
+        display: block
+    .navbar-collapse
+        &.collapse
+            display: none !important
+    .navbar-nav
+        float: none !important
+        > li
+            float: none
+            > a
+                margin-top: 0 !important
+                margin-bottom: 0 !important
+                padding-top: 10px
+                padding-bottom: 10px
+#autocollapse.collapsed.open
+    .navbar-collapse
+        &.collapse
+            display: block !important
+
+#autocollapse.collapsed
+    height: auto !important
+    z-index: 5 !important
+    width: 100%
+    padding-left: 0
+    padding-right: 0
+    background: $primary
+    .navbar-collapse
+        border-top: 1px solid $primary-light
+        max-height: 340px !important
+    .navbar-collapse.collapse.in
+        width: 100%
+        overflow: auto !important
+    .navbar-right
+        padding-right: 0 !important
+        li a
+            text-align: left
+    .navbar-nav
+        border-top: 0
+        margin: 0
+        li
+            a
+                +transition(.5s ease all)
+                border: 0
+                border-bottom: 1px solid $primary-light
+                margin-top: 0px
+                margin-right: 0
+                border-radius: 0
+                padding: 8px 16px 8px 16px
+                height: auto
+                &:hover
+                    border-bottom: 1px solid $primary-light !important
+                    background: $primary-light
+                    border-color: $primary-lighter
+            &.active
+                a
+                    background-color: $primary-dark !important
+                    color: $white !important
+                    border-bottom: none !important
+        .dropdown.open
+            .dropdown-toggle
+                +transition(0.3s ease all)
+                color: $primary !important
+                background-color: $white !important
+            .dropdown-menu
+                +transition(0.5s ease height)
+                padding-top: 0
+                width: 100%
+                li
+                    padding-bottom: 0
+                    a
+                        background: $white !important
+                        border-color: $primary-lightest !important
+                        color: $primary !important
+                        margin-top: 0
+                        margin-bottom: 0
+                        &:hover, &:active, &:focus
+                            color: $white !important
+                            background-color: $primary !important
+    .user-menu
+        width: 100% !important
+        a
+            text-align: left !important
+        ul.dropdown-menu
+            width: 100% !important
+            li
+                a
+                    text-align: left !important

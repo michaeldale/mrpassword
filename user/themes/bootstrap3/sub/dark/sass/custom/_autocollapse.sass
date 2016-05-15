@@ -1,0 +1,105 @@
+// Autocollapse
+#autocollapse.collapsed
+    .navbar-header
+        float: none
+    .navbar-toggle
+        display: block
+        border: 2px solid transparent
+        &:hover
+            border: 2px solid $white
+    .navbar-collapse
+        &.collapse
+            display: none !important
+    .navbar-nav
+        float: none !important
+        > li
+            float: none
+            > a
+                margin-top: 0 !important
+                margin-bottom: 0 !important
+                padding-top: 10px
+                padding-bottom: 10px
+#autocollapse.collapsed.open
+    .navbar-collapse
+        &.collapse
+            display: block !important
+
+#autocollapse.collapsed
+    height: auto !important
+    z-index: 5 !important
+    width: 100%
+    padding: 8px 0 !important
+    background: $nav-background
+    border-bottom: $white 1px solid
+    &.open
+        padding-bottom: 0 !important
+    .navbar-header
+        height: auto !important
+        .navbar-brand
+            margin: 0 !important
+    .navbar-collapse
+        padding: 0 !important
+        border: none !important
+        max-height: 340px !important
+    .navbar-collapse.collapse.in
+        width: 100%
+        overflow: auto !important
+    .navbar-right
+        padding-right: 0 !important
+        li a
+            text-align: left
+    .navbar-nav
+        border-top: 0
+        margin: 0
+        li
+            margin: 0 !important
+            &::before
+                display: none !important
+            a
+                border: 0
+                margin-top: 0px
+                margin-right: 0
+                border-radius: 0
+                padding: 8px 16px 8px 16px
+                height: auto
+                border-bottom: 1px solid lighten($nav-background, 5) !important
+                &:hover
+                    color: $white !important
+                    background: $nav-background-light !important
+                    border-bottom: 1px solid lighten($nav-background-light, 5) !important
+                    +transition(0.1s ease all)
+            &.active
+                a
+                    border-bottom: 1px solid $nav-background-light !important
+                    background-color: $nav-background-dark !important
+                    color: $white !important
+        .dropdown.open
+
+            .dropdown-toggle
+                color: $primary !important
+                background-color: $white !important
+            .dropdown-menu
+                padding-top: 0
+                margin-top: 0 !important
+                width: 100%
+                li
+                    padding-bottom: 0
+                    a
+                        background: $nav-background !important
+                        color: $white !important
+                        margin-top: 0
+                        margin-bottom: 0
+                        border-bottom: 1px solid $nav-background-light !important
+                        &:hover, &:active, &:focus
+                            color: $white !important
+                            background-color: lighten($nav-background, 5) !important
+                            border-bottom: 1px solid lighten($nav-background-light, 5) !important
+    .user-menu
+        width: 100% !important
+        a
+            text-align: left !important
+        ul.dropdown-menu
+            width: 100% !important
+            li
+                a
+                    text-align: left !important

@@ -1,0 +1,179 @@
+.dashboard
+	.col-md-9
+		padding-left: 0
+		padding-right: 0
+	.user-info .panel-body
+		padding-left: 0
+		padding-right: 0
+		padding-bottom: 0
+	.panel
+		.panel-heading
+			line-height: 35px
+			vertical-align: middle
+		.panel-body
+			height: 100%
+			display: inline-block
+			vertical-align: middle
+			.col-md-12, .col-md-11, .col-md-10, .col-md-9, .col-md-8
+				padding: 0
+			.panel-btn
+				width: 100%
+				float: left
+				padding: 5px 0 15px
+				.btn-group
+					width: 100%
+					display: block
+					float: left
+			.panel-buttons
+				float: left
+				padding: 15px 0 15px 0
+				clear: both
+				width: 100%
+				i.fa
+					float: right
+					font-size: 300%
+					margin: 0 10px 0 10px
+					padding: 4px 6px 4px 6px
+					+transition(all 0.3s ease)
+					border-radius: 25px
+			.panel-avatar
+				width: 30%
+				height: 80px
+				white-space: nowrap
+				text-align: center
+				margin: 1em 0
+				.middle-spacer
+					height: 100%
+					display: inline-block
+					vertical-align: middle
+				img
+					border: 2px solid $grey-lighter
+					vertical-align: middle
+					width: 80px
+					height: 80px
+					+border-radius(40px)
+		.panel-right
+			width: 70%
+		.panel-footer
+			padding: 5px 20px 5px 20px
+			width: 100%
+			background: $background-light
+			border-top: 2px solid $background-dark !important
+			border: none
+			ul
+				padding: 0
+				list-style: none
+				li
+					border-bottom: 1px solid $grey
+					margin-top: 5px
+			.left-result, .right-result
+				color: $grey
+				line-height: 35px
+				width: 50%
+				padding: 0
+				margin: 0
+			.left-result
+				font-size: 120%
+				line-height: 50px
+				vertical-align: middle
+			.right-result
+				text-align: right
+				font-size: 350%
+				line-height: 50px
+				vertical-align: middle
+				margin-bottom: 5px
+				a
+					+transition(all 0.3s ease)
+					padding: 3px 5px 3px 5px
+					&:hover, &:active, &:focus
+						text-decoration: none
+				a span
+					+transition(all 0.3s ease)
+				.red
+					color: $red-light
+					&:hover, &:active, &:focus
+						color: $red-lighter
+				.green
+					color: $green
+					&:hover, &:active, &:focus
+						color: $green-light
+
+				.yellow
+					color: $yellow-dark
+					&:hover, &:active, &:focus
+						color: $yellow-light
+				.orange
+					color: $orange
+					&:hover, &:active, &:focus
+						color: $orange-light
+
+	.panel-pink
+		.panel-heading
+			background-color: $pink
+			color: $white
+			font-weight: bold
+			border-bottom-color: $pink-dark
+			.btn-default
+				border: 1px solid $white
+				background-color: $pink
+				color: $white
+				+box-shadow(0,0,0)
+				&:hover, &:focus
+					color: $pink
+					background-color: $white
+		a .fa
+			color: $white
+			background: $pink
+			&:hover
+				color: $background
+		.panel-footer
+			.right-result
+				a
+					color: $pink
+
+
+	.panel-lightblue
+		.panel-heading
+			background-color: $lightblue
+			color: $white
+			font-weight: bold
+			border-bottom-color: $lightblue-dark
+			.btn
+				border: 1px solid $white !important
+				color: $white
+				+box-shadow(0,0,0)
+		.panel-body
+			background: $lightblue-light
+
+	.panel-green
+		.panel-heading
+			background-color: $green-darker
+			color: $white
+			font-weight: bold
+			border-bottom-color: $green-darkest
+			.btn
+				border: 1px solid $white !important
+				color: $white
+				+box-shadow(0,0,0)
+		.panel-body
+			background-color: $green
+			h4
+				color: $white
+				padding-top: 10px
+				margin-bottom: 3px
+		.panel-divider
+			padding-left: 18px
+			background-color: $green
+			border-top: $green-light 1px solid
+			padding: 5px 0 5px
+		.table,
+		thead,
+		tr,
+		th,
+			background: $green-dark !important
+		.table
+			border: 0 !important
+			td
+				border-color: $green-light
+				a
+					color: $white

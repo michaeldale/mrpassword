@@ -1,0 +1,379 @@
+@media print
+    .no_print
+        display: none
+
+@media screen and (max-width: 768px)
+    .btn-50
+        width: 100%
+        margin-bottom: 5px
+    .dropdown-menu
+        border: none !important
+    .well
+        padding: 14px
+    #no-more-tables td:before
+        top: 8px !important
+    .table:not(.no-responsive)
+        float: left
+        tr, tbody
+            float: left
+            width: 100%
+        td
+            min-width: 100%
+            float: left
+            margin: 0
+        td:last-child
+            border-bottom: 0 !important
+    .well, .panel
+        background: $white
+        .panel-body
+            padding-left: 15px
+            .panel-right
+                width: 100%
+
+        .table-striped:not(.no-responsive)
+            tr
+                td:nth-child(odd)
+                    background: $white
+                td:nth-child(even)
+                    background: $grey-lightest
+    // Tables switch to cards at low resolution, requires responsive-tables.css
+    table:not(.no-responsive), .table:not(.no-responsive)
+        +box-shadow(0 0 0 transparent !important)
+        background: transparent
+        float: left
+        border: 0
+        thead, thead tr
+            display: none
+        tbody
+            float: left
+            tr
+                position: relative
+                border: none !important
+                padding: 20px 20px 5px 20px
+                margin-bottom: 10px !important
+                background: $white !important
+                +box-shadow(0 1px 2px #ccc)
+                +border-radius(2px)
+                float: left
+                overflow: hidden
+            tr:nth-child(even)
+                background: $white !important
+            td
+                border-left: 0 !important
+                border-right: 0 !important
+                border-top: 0 !important
+        #no-more-tables
+            td
+                background: $white !important
+                padding-left: 120px !important
+                padding-bottom: 4px
+                padding-top: 7px
+                width: 50%
+                float: left
+                border-bottom: 1px solid #e2e2e2 !important
+    .ticket-filter
+        +border-radius(0 0 2px 2px)
+        margin-top: -21px
+    .ticket-list, .invoice-list
+        .table
+            tr
+                position: relative
+                border: none !important
+                padding: 70px 20px 5px 20px
+                margin-bottom: 10px !important
+                background: $white !important
+                +box-shadow(0 1px 2px #ccc)
+                +border-radius(2px)
+                float: left
+                overflow: hidden
+            td
+                padding-left: 90px !important
+                padding-bottom: 4px
+                padding-top: 7px
+                width: 50%
+                float: left
+                border-bottom: 1px solid #e2e2e2 !important
+            td[data-title="Select"],
+                width: 50% !important
+                float: left
+                margin-top: 35px
+                .btn-group
+                    width: 100%
+                    .btn
+                        width: 50%
+            td[data-title="Added"]
+                width: 50% !important
+                float: right !important
+            td[data-title="Status"]
+                clear: left
+            td[data-title="Status"],
+            td[data-title="Priority"]
+                color: #333
+                width: 50% !important
+            td[data-title="Owner"],
+            td[data-title="Assigned"]
+                width: 50% !important
+            td[data-title="Updated"]
+                width: 50% !important
+                float: right
+                border-bottom: 0 !important
+            td[data-title="Subject"]
+                min-width: 95% !important
+                position: absolute !important
+                white-space: nowrap
+                top: 10px
+                padding-right: 30px
+                float: left
+                clear: both
+                height: 43px !important
+                overflow: hidden !important
+                vertical-align: middle
+                &::before
+                    margin-top: 10px !important
+                a
+                    font-size: 130%
+                    line-height: 230%
+
+@media screen and (max-width: 650px)
+    .login-container
+        width: 100%
+        padding-left: 15px
+        padding-right: 15px
+        margin-right: 15px
+
+@media (min-width: 520px)
+    .splitscreen .well-sm .bottom-button
+        margin-top: -36px
+
+@media (max-width: 500px)
+    table
+        tbody
+            tr
+                td
+                    min-width: 100% !important
+
+@media (max-width: 1250px) and (min-width: 991px)
+    .btn-50
+        width: 100%
+        margin-bottom: 10px
+
+// Tickets display media
+@media all and (min-width: 991px)
+    .ticket-container
+        padding-left: 0
+    .filter
+        display: block !important
+
+@media (max-width: 991px)
+    .panel .nopad-left
+        padding-left: 15px !important
+    .pagination
+        width: 100%
+    .show-filter
+        display: block
+    .filter
+        display: none
+    .top-controls
+        padding-left: 15px
+    .ticket-view
+        .ticket-reply
+            padding-left: 0
+            .well
+                padding: 0
+                margin-bottom: 5px
+            .redactor-box
+                .redactor-toolbar
+                    border-top: 0
+                .redactor-editor
+                    border-left: 0
+                    border-right: 0
+        .reply-options
+            width: 100%
+            .form-control
+                margin-bottom: 10px
+    .tab-content
+        .ticket-reply
+            padding-bottom: 1em
+            min-height: 0
+        .reply-options
+            border-left: 0
+            border-top: 1px solid $grey-lighter
+            .well
+                width: 100%
+                .col-md-6
+                    float: left
+                    width: 50%
+
+@media screen and (max-width: 1860px)
+    .tab-content
+        .reply-options
+            h4
+                font-size: 13px
+
+@media screen and (min-width: 991px) and (max-width: 1860px)
+    .tab-content
+        .reply-options
+            .well
+                .col-md-6
+                    width: 100%
+                    input#timesheet_billable
+                        margin-bottom: 0.5em
+
+@media screen and (max-width: 768px)
+    .tab-content
+        .reply-options
+            .well
+                .col-md-6
+                    width: 100%
+
+// Timesheets block
+@media screen and (max-width: 976px)
+    .panel-timesheet
+        +box-shadow(0 0 0 transparent !important)
+    .timesheet-single .panel-body
+        float: left
+        +transition(all 0.5s ease)
+        padding: 10px 20px 10px 20px !important
+        background: $white
+        margin-top: 10px
+        +box-shadow(0 1px 2px #ccc)
+        +border-radius(2px)
+    .timesheet_item_current,
+    .new_timesheet_item,
+    .new_invoice_item,
+        float: left
+        +transition(all 0.5s ease)
+        padding: 10px 20px 10px 20px !important
+        background: $white !important
+        margin-top: 10px
+        +box-shadow(0 1px 2px #ccc)
+        +border-radius(2px)
+        .form-group
+            float: left
+            margin-right: 1% !important
+            .control-group input,
+            input,
+            .select2-container
+                width: 100%
+                margin-bottom: 0.25em
+            .select2-container
+                width: 100% !important
+            &.item-actions
+                width: 100%
+                margin-right: 0 !important
+                .btn
+                    float: left
+                    width: 49%
+                    margin-right: 1%
+    .panel-timesheet, .panel-invoice
+        border: none !important
+        background-color: transparent !important
+        .panel-body
+            padding: 0
+        .panel-heading
+            +box-shadow(0 1px 2px #ccc)
+            +border-radius(2px)
+            border-bottom: 0
+        .panel-footer
+            +box-shadow(0 1px 2px #ccc)
+            +border-radius(2px)
+            border-bottom: 0
+            margin-top: 10px
+
+@media screen and (max-width: 1430px) and (min-width: 976px)
+    .filter
+        .form-group
+            width: 100%
+    .panel-timesheet
+        .panel-body
+            padding: 0
+    .timesheet_item_current,
+    .new_timesheet_item,
+    .new_invoice_item
+        width: 100% !important
+        padding: 10px 10px 15px 10px!important
+    .timesheet_item_current:nth-child(odd),
+    .new_timesheet_item:nth-child(odd)
+        background: lighten($grey-lightest, 1)
+    .timesheet_item_current .form-group,
+    .new_timesheet_item .form-group,
+    .new_invoice_item .form-group,
+    .new_timesheet_item .hours-contain,
+    .timesheet_item_current .hours-contain,
+    .new_invoice_item .hours-contain
+        width: 15%
+        margin-right: 1% !important
+        input, .select2-choice, .select2-default, .select2-container
+            width: 100% !important
+
+@media screen and (max-width: 976px)
+    .timesheet_item_current .form-group,
+    .new_timesheet_item .form-group,
+    .new_invoice_item .form-group
+        width: 49%
+        margin-right: 1% !important
+
+@media screen and (max-width: 468px)
+    .timesheet_item_current .form-group,
+    .new_invoice_item .form-group,
+    .new_timesheet_item .form-group
+        width: 100%
+        margin: 0 0 5px 0
+
+// Ticket control fixes
+
+@media screen and (max-width: 1550px)
+    .well-buttons
+        .col-md-6
+            .btn
+                font-size: 90%
+
+@media screen and (max-width: 1450px)
+    .well-buttons
+        .col-md-6
+            .btn
+                font-size: 80%
+
+@media screen and (max-width: 1340px)
+    .well-buttons
+        .col-md-6
+            width: 100%
+            padding-left: 15px !important
+            padding-right: 15px !important
+            .btn
+                font-size: 100%
+
+@media screen and (max-width: 1370px) and (min-width: 768px)
+    td
+        &[data-title="Select"]
+            background: $white !important
+            padding: 0 !important
+            vertical-align: left
+            .btn-toolbar
+                padding: 0 !important
+                margin-left: 0 !important
+                .btn-group
+                    width: 100%
+                    padding: 0
+                    margin-left: 0 !important
+                    .btn
+                        margin: 0
+                        clear: both
+                        width: 100%
+                        padding: 5px 0 5px 0
+                        +border-radius(0)
+                        border-top: 1px solid !important
+                        border-left: 0 !important
+                        border-right: 0 !important
+                        border-bottom: 1px solid
+                        margin-left: 0 !important
+                    .btn:last-child
+                        border-top: none !important
+                    .btn-default
+                        background: $white
+                        border-color: $grey-lighter !important
+                        color: $grey-darker
+                        &:hover, &:focus
+                            background: $primary
+                            color: $white
+                            border-color: $white !important

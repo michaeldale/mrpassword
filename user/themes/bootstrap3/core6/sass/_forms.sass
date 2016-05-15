@@ -1,0 +1,111 @@
+select
+    font-size: 80%
+    width: 170px
+    height: 30px
+    +border-radius(0)
+    border: 1px solid $grey-light
+
+select, input
+    &:disabled
+        cursor: not-allowed
+        background: $grey-lightest !important
+
+.checkbox
+    label
+        line-height: 36px
+    input[type="checkbox"]
+        position: relative
+        float: left
+        margin-top: -4px
+        margin-left: 0
+        margin-right: 3px
+
+.control-group
+    input,
+    .select2-container,
+    select
+        height: 30px
+        .select2-choice
+            height: 100%
+
+.form-control
+    border-radius: 0
+    border: 1px solid $grey-light
+    &:focus, &:active,
+        +box-shadow(0 0 0 transparent)
+.panel
+    input.form-control
+        width: auto
+        max-width: 100%
+
+a.select2-choice.select2-default,
+    border-radius: 0
+
+.select2-search input
+    &[type="text"]
+        margin-top: 5px
+        background: $white
+
+.select2-dropdown-open .select2-choice,
+.select2-choice
+    border-color: $grey-light !important
+    background-image: none !important
+    background-color: lighten($grey-lightest, 3) !important
+
+.select2-search-choice-close
+    top: 6px !important
+
+.select2-container,
+.select2-choice,
+.select2-drop
+    border-radius: 0 !important
+
+.select2-container-active .select2-choice,
+.select2-container-active .select2-choices,
+.select2-drop-active,
+    border-color: $primary-lighter !important
+
+.select2-container .select2-choice .select2-arrow
+    border-left-color: $grey-light !important
+    color: $white
+    border-radius: 0 !important
+
+.select2-results
+    li
+        +transition(all ease 0.3s !important)
+    .select2-highlighted
+        +transition(all ease 0.1s !important)
+
+.col-md-9
+    .select2-container .select2-choice
+        height: 34px
+        border-radius: 0
+        padding: 3px 0 0 8px
+        .select2-search-choice-close
+            top: 8px !important
+
+.left-result
+    margin: 0.5%
+    float: left
+    width: 38%
+    font-weight: bold
+
+.right-result
+    margin: 0.5%
+    float: right
+    width: 58%
+    .select2-container,
+    .select2-choice,
+        width: 100% !important
+
+.show-filter
+    display: none
+
+.filter
+    display: block
+    input
+        background: lighten($grey-lightest, 3) !important
+
+.panel
+    .dropzone
+        border: 1px solid $grey-light

@@ -1,0 +1,97 @@
+.navbar
+    padding: 8px 0
+    height: $nav-height
+    background: $nav-background
+    a
+        font-family: $font
+    .navbar-collapse
+        height: auto !important
+        border-right: 0
+        border-left: 0
+        .navbar-nav
+            margin: 3px 0
+    .navbar-header
+        height: $nav-height !important
+        .navbar-toggle
+            margin-top: 8px
+            background-color: $white
+            .icon-bar
+                background-color: $nav-background
+            &:hover, &:active
+                background-color: $nav-background
+                .icon-bar
+                    background-color: $white
+        .navbar-brand
+            font-weight: 700
+            min-height: 0px
+            padding-top: 0
+            padding-bottom: 0
+            padding-right: 24px
+            line-height: 40px
+            +transition(0.3s ease-in-out height)
+            img
+                height: 40px !important
+                width: auto
+            &:hover
+                +transition( 0.2s ease color )
+                color: $primary-light
+    ul.navbar-nav
+        li + li::before
+            display: inline-block
+            position: relative
+            float: left
+            z-index: 1
+            content: ''
+            height: 18px
+            width: 1px
+            background-color: rgba($white, 0.5)
+            margin-top: 0
+        li
+            margin: 8px 3px
+            a
+                height: auto !important
+                padding: 0 16px
+                background: $nav-background
+                color: $white !important
+                +transition(0.1s linear color)
+                &:hover, &:active, &:focus,
+                    color: $nav-background-lightest !important
+                    border-bottom: 0px solid transparent !important
+                    background: $nav-background !important
+                    +transition(0.1s linear color)
+            &.active a
+                color: $nav-background-lightest !important
+                background: transparent !important
+                +transition(none)
+    .dropdown.open > .dropdown-toggle,
+    .dropdown > .dropdown-toggle:focus
+        background: $nav-background !important
+        color: $white !important
+    .dropdown > .dropdown-toggle:hover
+        color: $nav-background-lightest !important
+    .dropdown.open, .dropdown.active.open
+        > .dropdown-toggle
+            color: $nav-background-lightest !important
+            &:focus
+                color: $white !important
+                background: $nav-background !important
+        .dropdown-menu
+            margin-top: 16px
+            background: $nav-background-light !important
+            li
+                margin: 0 !important
+                &::before
+                    display: none
+                a
+                    color: $white !important
+                    background: $nav-background-light !important
+                    border-bottom: 1px solid lighten($nav-background-light, 5) !important
+                    margin: 0 !important
+                    padding: 8px 12px !important
+                    +transition(0.2s linear all)
+                    &:hover, &:active, &:focus
+                        color: $white !important
+                        background: lighten($nav-background-light, 5) !important
+                        border-bottom: 1px solid lighten($nav-background-light, 10) !important
+                        +transition(0.1s linear all)
+

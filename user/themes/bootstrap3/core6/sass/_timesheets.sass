@@ -1,0 +1,41 @@
+.timesheet_item_current,
+.new_timesheet_item,
+.new_invoice_item,
+    padding: 8px
+    position: relative
+    box-sizing: border-box
+    +transition( 0.1s, ease, all )
+    .control-group
+        input,
+        .select2-container,
+            height: 30px
+    .select2-container
+        .select2-choice
+            height: 30px
+    .timesheet_buttons
+        .custom_modal
+            height: 30px
+            min-width: 30px
+            line-height: 28px
+    .form-group
+        input
+            &:focus
+                border: 1px solid $primary-lighter !important
+        input,
+        .select2-container .select2-choice
+            border: 1px solid $grey-light !important
+        .select2-container-active .select2-choice,
+        .select2-container-active .select2-choices,
+        .select2-drop-active,
+            border: 1px solid $primary-lighter !important
+
+.timesheet_item_extra,
+.new_timesheet_item,
+.invoice_item_extra
+    float: left
+    width: 100%
+
+.form-inline
+    .panel
+        .panel-footer
+            background: $background

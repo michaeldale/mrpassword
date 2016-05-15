@@ -1,0 +1,207 @@
+.ticket-view
+    .panel-heading,
+    .panel-footer
+        .btn
+            .fa
+                font-size: 16px
+                width: 15px
+        .label
+            padding-top: 5px
+            padding-bottom: 5px
+            &.label-success
+                @extend .btn-success
+    .ticket-reply
+        .redactor-box
+            .redactor-toolbar
+                border-top: 0
+        .panel-footer
+            .btn
+                .fa
+                    font-size: 12px
+        .well
+            margin-bottom: 0
+    p.MsoListParagraph
+        text-indent: 0 !important
+
+.page-header
+    margin: 2em 0 1em 0
+    padding: 0
+    border-bottom: none
+.ticket-list
+    table, .table
+        border: 0px !important
+        th
+            &.column-toggle
+                min-width: 90px
+        td
+            vertical-align: middle
+
+.redactor-box
+    margin-bottom: 10px !important
+    .redactor-editor
+        min-height: 220px !important
+        border-left: 0
+        border-right: 0
+        border-top: 0
+        border-bottom: 1px solid $grey-lighter
+        padding: 10px
+    .redactor-toolbar
+        border-bottom: 1px solid $grey-lighter
+        +box-shadow(0 0 0 transparent)
+.panel
+    .panel-heading + .form-group
+        border-top: 1px solid $grey-lighter
+    .panel-body
+        .redactor-box
+            border: 1px solid $grey-lighter
+.panel.panel-default
+    .redactor-box
+        overflow: hidden
+
+.tab-content
+    background: $white
+    border: 1px solid $primary-lightest
+    +border-radius(0 2px 2px 2px)
+    .well
+        +box-shadow(0 0 0 transparent)
+        background: transparent
+        padding: 10px 0
+    &.bg-light-gray
+        background: $grey-lightest
+        border: 1px solid $red-lightest
+        .reply-options
+            background: lighten($grey-lighter, 7)
+    .reply-box
+        min-height: 400px
+    .reply-options
+        min-height: 400px
+        border-left: 1px solid $grey-lighter
+        padding-bottom: 5px
+        float: right
+        height: 100%
+        background: $grey-lightest
+        .col-md-6
+            padding-right: 0
+        h4
+            margin-bottom: 5px
+        .select2-container, input
+            width: 100% !important
+
+#show-filter-button
+    width: 122px
+    margin-top: 5px
+#show-filter-button.btn-100
+    width: 100% !important
+    margin-top: 0
+
+.extra_settings
+    float: left
+    width: 100%
+
+.nav-tabs
+    border-bottom-color: transparent
+    li
+        margin-bottom: -2px
+        a
+            border: 1px solid transparent
+            border-bottom-color: transparent !important
+        &:first-child /* Public reply tab */
+            a
+                &:hover, &:active, &:focus
+                    background: $grey-lightest
+                    border-color: $primary-lightest
+            &.active
+                a
+                    background: $white
+                    border-color: $primary-lightest
+                    &:hover, &:active, &:focus
+                        background: $white
+        &:nth-child(2) /* Private reply tab */
+            a
+                &:hover, &:active, &:focus
+                    background: $white
+                    border-color: $red-lightest
+            &.active
+                a
+                    background: $grey-lightest
+                    border-color: $red-lightest
+                    &:hover, &:active, &:focus
+                        background: $grey-lightest
+
+.panel
+    // For when panel classes are changed
+    &.panel-private
+        border: 1px solid $primary-lighter
+        background: $grey-lightest
+        .panel-footer
+            border-top: 1px solid $grey-light
+            background-color: $grey-lighter
+    &.panel-good
+        border: 1px solid $green-light
+        .panel-footer
+            border-top: 1px solid $green-light
+    &.panel-bad
+        border: 1px solid $red-light
+        .panel-footer
+            border-top: 1px solid $red-light
+
+.ticket-action
+    padding-top: 0
+    padding-bottom: 5px
+    p
+        margin: 0
+    label
+        color: $grey-dark
+        font-weight: normal
+        line-height: 15px
+        margin-top: 0
+        margin-bottom: 0
+    .select2-container
+        height: 24px
+        .select2-default, .select2-choice
+            color: $grey-dark
+            height: 24px !important
+            line-height: 1.8
+            padding-top: 0 !important
+            .select2-search-choice-close
+                margin-top: -3px !important
+    .select2-container
+        .select2-choice
+            .select2-arrow
+                b
+                    background-position: 0 -2px
+    .btn-sm
+        padding: 2px 6px 2px 6px
+        height: 24px
+        line-height: 0.5
+
+.top-controls
+    padding-left: 0
+    .text-muted
+        margin-left: 0
+        margin-bottom: 0
+.bottom-controls
+    float: left
+    width: 100%
+    margin-top: -10px
+
+.btn-group > .dropdown-menu
+    margin-top: 0px
+    background-color: $white
+    border: 1px solid $grey-lightest !important
+    +border-radius(0 0 2px 2px)
+
+a.insert_canned_response
+    color: $grey-darkest
+    &:hover, &:active, &:focus
+        background-color: $grey-lightest !important
+
+.ticket-note-1
+    border: 1px solid #ccc
+
+.ticket-note-2
+    background-color: #def2fb
+    border: 1px solid #ccc
+
+.ticket-highlight
+    background-color: #fcf8e3 !important

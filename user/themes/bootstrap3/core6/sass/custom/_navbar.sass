@@ -1,0 +1,28 @@
+.navbar
+    .navbar-brand
+        font-weight: 700
+        color: $white !important
+        min-height: 0px
+        padding-top: 0
+        padding-bottom: 0
+        +transition(0.3s ease-in-out height)
+        &:hover
+            +transition( 0.2s ease color )
+            color: $primary-light
+    .navbar-nav
+        li
+            a
+                color: $white
+                border: 0
+                &:hover, &:active, &:focus
+                    border-bottom: 3px solid $white !important
+                    color: $white !important
+                    background-color: $tertiary !important
+                    +transition(0.2s linear all)
+    ul .active a
+        &:hover, &:focus, &:active
+            background-color: lighten($grey-lightest, 2) !important
+            color: $primary  !important
+            border-bottom: 0 !important
+            border-color: lighten($grey-lightest, 2) !important
+

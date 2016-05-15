@@ -1,0 +1,190 @@
+// Main button styles
+
+// Default //
+.btn-default
+    background: $white
+    border-color: $grey-b-dark
+    color: $grey-b-darker
+    &:hover, &:focus
+        background: $grey-lightest
+        color: $grey-b-darkest
+        border-color: $grey-b-darker
+        +box-shadow(0,0,0,0)
+        outline: 0 !important
+    &:active
+        background: $grey-lightest
+        border-color: $grey-b-darker
+        +box-shadow(0 2px 1px #ccc)
+.open > .dropdown-toggle.btn-default
+    background: $grey-lightest
+
+// Primary //
+.btn-primary
+    background-color: $primary-light
+    border-color: $primary-b-light
+    color: $white
+    &:hover, &:focus
+        background-color: $primary
+        border-color: $primary-b
+        +box-shadow(0,0,0,0)
+        outline: 0 !important
+    &:active, &.active
+        background-color: darken($primary, 5)
+        border-color: darken($secondary-b, 5)
+.open > .dropdown-toggle.btn-primary
+    color: $lightblue
+    background-color: $lightblue-lightest
+    border-color: $lightblue
+.btn-primary-outline
+    background-color: $white
+    color: $primary
+    border-color: $primary-b-light
+    &:hover, &:focus
+        background-color: rgba($primary, 0.1)
+        color: $primary
+        border-color: $primary-b
+        +box-shadow(0 0 0 transparent)
+        outline: 0 !important
+    &:active
+        border-color: $primary-b
+
+// Info //
+.btn-info
+    background-color: $secondary
+    border-color: $secondary-b
+    color: $white
+    &:hover, &:focus
+        background-color: $secondary-dark
+        border-color: $secondary-b-dark
+        +box-shadow(0 0 0 transparent)
+        outline: 0 !important
+    &:active, &.active, &.active
+        background-color: darken($secondary-dark, 5)
+        border-color: darken($secondary-b-dark, 5)
+.open > .dropdown-toggle.btn-info
+    background-color: $secondary-dark
+.btn-info-outline
+    background-color: $white
+    color: $secondary-darker
+    border-color: $secondary-b
+    &:hover, &:focus
+        background-color: rgba($secondary, 0.15)
+        color: $secondary-dark
+        border-color: $secondary-b-dark
+        +box-shadow(0 0 0 transparent)
+        outline: 0 !important
+    &:active
+        border-color: $secondary-b-dark
+
+// Success //
+.btn-success
+    background-color: $green-dark
+    border-color: $green-b-dark
+    &.fa
+        padding: 3px 4px
+        +border-radius(10px)
+        border: 1px solid $green-darker !important
+        background: transparent !important
+        color: $green-darker !important
+    &:hover, &:focus, &.active
+        background-color: $green-darker
+        border-color: $green-b-darker
+        +box-shadow(0,0,0,0)
+        outline: 0 !important
+    &:active
+        background-color: darken($green-darker, 5)
+        border-color: darken($green-b-darker, 5)
+.open > .dropdown-toggle.btn-success
+    background-color: $green-dark
+.btn-success-outline
+    background-color: $white
+    color: $green-darker
+    border-color: $green-b-dark
+    &:hover, &:focus, &.active
+        background-color: rgba($green, 0.15)
+        color: $green-darker
+        border-color: $green-b-darker
+        +box-shadow(0 0 0 transparent)
+        outline: 0 !important
+    &:active
+        border-color: $green-b-darker
+
+// Warning //
+.btn-warning
+    background: $orange
+    border-color: $orange-b
+    &.fa
+        padding: 3px 4px
+        +border-radius(10px)
+        border: 1px solid $orange-dark !important
+        background: transparent !important
+        color: $orange-dark !important
+    &:hover, &:focus
+        background-color: $orange-dark
+        border-color: $orange-b-dark
+        +box-shadow(0 0 0 transparent)
+        outline: 0 !important
+    &:active
+        +box-shadow(0 2px 1px #ccc)
+.open > .dropdown-toggle.btn-primary
+    background-color: $orange
+.btn-warning-outline
+    background: $white
+    color: $orange-dark
+    border-color: $orange-b
+    &:hover, &:focus, &.active
+        background-color: rgba($orange, 0.15)
+        color: $orange-dark
+        border-color: $orange-b-dark
+        +box-shadow(0 0 0 transparent)
+        outline: 0 !important
+    &:active
+        border-color: $orange-b-dark
+
+// Danger //
+.btn-danger
+    background-color: $red-lighter
+    border-color: $red-b-lighter
+    &.fa
+        padding: 3px 4px
+        +border-radius(10px)
+        border: 1px solid $red-light !important
+        background: transparent !important
+        color: $red-light !important
+    &:hover, &:focus, &.active
+        background: $red-light
+        border-color: $red-b
+        +box-shadow(0 0 0 transparent)
+        outline: 0 !important
+    &:active
+        +box-shadow(0 2px 1px#ccc)
+.open > .dropdown-toggle.btn-primary
+    background-color: $red-light
+.btn-danger-outline
+    background: $white
+    color: $red
+    border-color: $red-b-lighter
+    &:hover, &:focus, &.active
+        background-color: rgba($red, 0.1)
+        color: $red
+        border-color: $red-b
+        +box-shadow(0 0 0 transparent)
+        outline: 0 !important
+    &:active
+        border-color: $red-b
+
+// Invert //
+.btn-invert
+    background: $white
+    border-color: $grey-light
+    &:hover, &:focus, &.active
+        color: $white
+        background: $grey-darkest
+        border-color: $grey-darkest
+        +box-shadow(0 0 0 transparent)
+        outline: 0 !important
+    &:active
+        border-color: $primary-lighter
+        +box-shadow(0 2px 1px #ccc)
+.open > .dropdown-toggle.btn-default
+    background: $grey-lightest

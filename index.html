@@ -78,6 +78,69 @@
 		</ul>
 		  
 		</section>
+		
+				<h3 id="install"><strong>Install</strong> - <a href="#toc">top</a></h3>
+		
+		<p>There are a number of steps required to install MrP.</p>
+		
+		<ol>
+			<li>Copy the unzipped contents of the zip file to somewhere on your webserver. You can install MrP in a folder on your existing web hosting or setup a new subdomain.</li>
+			<li>Create an empty MySQL database (most hosting provides a control panel that allows you to do this).</li>
+			<li>Ensure your PHP install can create files (for config.php to be created during the install).</li>
+			<li>Run http://mrp.example.com/install/ from your web browser.</li>
+			<li>Follow the steps.</li>
+			<li>Backup your MySQL database and user/settings/config.php file.</li>
+			<li>Setup a process to visit http://mrp.example.com/cron/ every 5 minutes (more info below).</li>
+			<li>Done</li>
+		</ol>
+		
+		<hr>
+		
+		<h3 id="cron"><strong>CRON Setup</strong> - <a href="#toc">top</a></h3>
+		
+		<p>The cron system allows MrP to check for updates and expire old sessions (and other tasks) in the background.</p>
+		
+		<p>There are a number of ways to set this up. The best method is to use a Linux Cron style setup on the server itself. This will be the most reliable method.</p>
+		
+		<p>Although you can use one of the many free web cron services.</p>
+		
+		<h4>Linux Cron</h4>
+		
+		<ol>
+			<li>Type crontab -e in your linux command line.</li>
+			<li>Type in the following: */5 * * * * wget -q -O /dev/null "http://mrp.example.com/cron/"</li>
+			<li>Save</li>
+			<li>crontab -l should now list the cron process</p>
+		</ol>
+		
+		<p>If you do not have access to the command line you might have access to the web hosting control panel that should allow this. Otherwise talk with your webhost.</p>
+	
+		<h4>Windows Scheduled Task</h4>
+		
+		<p>Windows supports the same type of CRON process through the use of a Scheduled Task and a 3rd party wget program.</p>
+		
+		<p><a href="http://gnuwin32.sourceforge.net/packages/wget.htm">Wget for Windows</a></p>
+	
+		<hr>
+		
+		<h3 id="upgrade"><strong>Upgrading</strong> - <a href="#toc">top</a></h3>
+		
+		<p>Upgrading is pretty easy.</p>
+		
+		<ol>
+			<li>Download the latest version of the MrP zip file</li>
+			<li>Backup your MySQL database, config.php file and .htaccess file.</li>
+			<li>Backup any custom code or changes you have made (this will be overwritten).</li>
+			<li>Unzip the new install onto your local computer.</li>
+			<li>Delete the install/ folder.</li>
+			<li>Upload this to your existing install of MrP replacing all existing files.</li>
+			<li>Login</li>
+			<li>Run the database upgrade from the dashboard (or run http://mrp.example.com/upgrade/).</li>
+		</ol>
+				
+		<p><img src="assets/images/upgrade.png" alt="Upgrade" /></p>
+			
+		
 
         <footer>
           MrPassword is maintained by <a href="https://github.com/michaeldale">michaeldale</a><br>

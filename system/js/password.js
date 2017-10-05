@@ -12,7 +12,7 @@ $(document).ready(function () {
 			type: "GET",
 			url:  mrp_base_url + "/passwords/gethistory/" + password_id,
 			success: function(html){
-				$('#id-' + password_id).replaceWith(html);
+                $('#id-' + password_id).replaceWith(getPasswordBox(html, '#id-' + password_id));
 			}
 
 
@@ -32,7 +32,7 @@ $(document).ready(function () {
 			type: "GET",
 			url:  mrp_base_url + "/passwords/get/" + password_id,
 			success: function(html){
-				$('#id-' + password_id).replaceWith(html);
+                $('#id-' + password_id).replaceWith(getPasswordBox(html, '#id-' + password_id));
 			}
 
 
@@ -52,7 +52,7 @@ $(document).ready(function () {
 			type: "GET",
 			url:  mrp_base_url + "/passwords/getshare/" + password_id,
 			success: function(html){
-				$('#id-' + password_id).replaceWith(html);
+                $('#id-' + password_id).replaceWith(getPasswordBox(html, '#id-' + password_id));
 			}
 
 
@@ -72,13 +72,30 @@ $(document).ready(function () {
 			type: "GET",
 			url:  mrp_base_url + "/passwords/getglobal/" + password_id,
 			success: function(html){
-				$('#id-' + password_id).replaceWith(html);
+                $('#id-' + password_id).replaceWith(getPasswordBox(html, '#id-' + password_id));
 			}
 
 
 		 });
 		 
 	});
+
+	var getPasswordBox = function (password, passwordId) {
+		var box = $("<div>");
+
+		var input = $("<input>");
+        input.val(html);
+        input.attr("id", '#id-' + password_id);
+        input.appendTo(box);
+
+		var copy = $("<a>");
+		copy.attr("href", "#");
+		copy.addClass("copy_user_name");
+		copy.attr("alt", "Copy user name");
+		copy.appendTo(box);
+
+		return box;
+    };
 
 	$(".generate_password").click(function (e) {
 		e.preventDefault();
@@ -164,8 +181,16 @@ $(document).ready(function () {
 			return false;
 		}
 		
-    });	
-	
+    });
 
+    $(".copy_user_name").click(function () {
+        var sourceElement = $(this).attr("id");
+
+        var $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val($(sourceElement).text()).select();
+        document.execCommand("copy");
+        $temp.remove();
+    });
 
 });

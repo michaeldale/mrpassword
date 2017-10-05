@@ -235,10 +235,31 @@ include(core\ROOT . '/user/themes/'. CURRENT_THEME .'/includes/html_header.php')
 						foreach ($passwords_array as $password) {
 					?>
 					<tr <?php if ($i % 2 == 0 ) { echo 'class="switch-1"'; } else { echo 'class="switch-2"'; }; ?>>
-						<td class="centre"><a href="<?php echo $config->get('address'); ?>/passwords/view/<?php echo (int) $password['id']; ?>/"><?php echo safe_output($password['name']); ?></a></td>
-						<td class="centre"><?php echo safe_output($password['category_name']); ?></td>
-						<td class="centre"><?php echo safe_output($password['username']); ?></td>
-						<td class="centre" name="password<?php echo (int) $password['id']; ?>"><?php if ($show_all) { ?><?php echo safe_output($encryption->decrypt($password['password'])); ?><?php } else { ?><a href="#password<?php echo (int) $password['id']; ?>" class="show_password" id="id-<?php echo (int) $password['id']; ?>"><?php echo $language->get('Show'); ?></a><?php } ?></td>
+						<td class="centre">
+                            <a href="<?php echo $config->get('address'); ?>/passwords/view/<?php echo (int) $password['id']; ?>/">
+                                <?php echo safe_output($password['name']); ?>
+                            </a>
+                        </td>
+						<td class="centre">
+                            <?php echo safe_output($password['category_name']); ?>
+                        </td>
+						<td class="centre">
+                            <input readonly value="<?php echo safe_output($password['username']); ?>" id="user_id-<?php echo (int) $password['id']; ?>">
+                            <a href="#" class="copy_user_name">
+                                <img src="<?php echo $config->get('address'); ?>/user/themes/<?php echo safe_output(CURRENT_THEME); ?>/images/icons/clipboard.png" alt="Copy user name" />
+                            </a>
+                        </td>
+						<td class="centre" name="password<?php echo (int) $password['id']; ?>">
+                            <?php if ($show_all) { ?>
+
+                                <?php echo safe_output($encryption->decrypt($password['password'])); ?>
+
+                            <?php } else { ?>
+                                <a href="#password<?php echo (int) $password['id']; ?>" class="show_password" id="id-<?php echo (int) $password['id']; ?>">
+                                <?php echo $language->get('Show'); ?>
+                                </a>
+                            <?php } ?>
+                        </td>
 					</tr>
 					<?php $i++; } ?>
 				</table>

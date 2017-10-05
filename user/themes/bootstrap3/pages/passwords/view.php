@@ -46,37 +46,37 @@ include(core\ROOT . '/user/themes/'. CURRENT_THEME .'/includes/html_header.php')
 			<div class="pull-left">
 				<h4><?php echo $language->get('Password'); ?></h4>
 			</div>
-			
+
 			<div class="pull-right">
 				<p><a href="<?php echo $config->get('address'); ?>/passwords/edit/<?php echo (int) $password['id']; ?>/" class="btn btn-default"><?php echo $language->get('Edit'); ?></a></p>
 			</div>
-			<div class="clearfix"></div>	
-			
+			<div class="clearfix"></div>
+
 			<label class="left-result"><?php echo $language->get('Added'); ?></label>
 			<p class="right-result"><?php echo safe_output(time_ago_in_words($password['date_added'])); ?> <?php echo $language->get('ago'); ?></p>
 			<div class="clearfix"></div>
-			
+
 			<label class="left-result"></label><p class="right-result"><?php echo safe_output(($password['date_added'])); ?></p>
 			<div class="clearfix"></div>
-			
+
 			<label class="left-result"><?php echo $language->get('Updated'); ?></label>
 			<p class="right-result"><?php echo safe_output(time_ago_in_words($password['last_modified'])); ?> <?php echo $language->get('ago'); ?></p>
 			<div class="clearfix"></div>
-			
+
 			<label class="left-result"></label><p class="right-result"><?php echo safe_output(($password['last_modified'])); ?></p>
 			<div class="clearfix"></div>
-			
+
 			<label class="left-result"><?php echo $language->get('History Count'); ?></label><p class="right-result"><?php echo safe_output($history_count); ?></p>
 			<div class="clearfix"></div>
 			<br />
-			
+
 			<div class="pull-right">
 				<p><a href="<?php echo $config->get('address'); ?>/passwords/history/<?php echo (int) $password['id']; ?>/" class="btn btn-default"><?php echo $language->get('View History'); ?></a></p>
 			</div>
 			<div class="clearfix"></div>
 
 		</div>
-		
+
 		<?php $files = $passwords->get_files(array('id' => $password['id'])); ?>
 		<?php if (count($files) > 0) { ?>
 			<div class="well well-sm">
@@ -89,14 +89,14 @@ include(core\ROOT . '/user/themes/'. CURRENT_THEME .'/includes/html_header.php')
 					</li>
 					<?php } ?>
 				</ul>
-			
+
 			</div>
 		<?php } ?>
-		
+
 	</div>
 
 	<div class="col-md-9">
-		<div id="content">		
+		<div id="content">
 			<div class="table-responsive">
 				<table class="table table-striped">
 					<tr>
@@ -116,12 +116,12 @@ include(core\ROOT . '/user/themes/'. CURRENT_THEME .'/includes/html_header.php')
 					<?php $i++; ?>
 					<tr <?php if ($i % 2 == 0 ) { echo 'class="switch-1"'; } else { echo 'class="switch-2"'; }; ?>>
 						<td class="centre"><?php echo $language->get('Username'); ?></td>
-						<td class="centre"><?php echo safe_output($password['username']); ?></td>
+                        <td class="centre"><span class="content-as-copy-box"><?php echo safe_output($password['username']); ?></span></td>
 					</tr>
 					<?php $i++; ?>
 					<tr <?php if ($i % 2 == 0 ) { echo 'class="switch-1"'; } else { echo 'class="switch-2"'; }; ?>>
 						<td class="centre"><?php echo $language->get('Password'); ?></td>
-						<td class="centre"><?php echo safe_output($encryption->decrypt($password['password'])); ?></td>
+                        <td class="centre"><span class="content-as-copy-box"><?php echo safe_output($encryption->decrypt($password['password'])); ?></span></td>
 					</tr>
 					<?php $i++; ?>
 					<tr <?php if ($i % 2 == 0 ) { echo 'class="switch-1"'; } else { echo 'class="switch-2"'; }; ?>>
@@ -134,19 +134,19 @@ include(core\ROOT . '/user/themes/'. CURRENT_THEME .'/includes/html_header.php')
 						<td class="centre"><?php echo nl2br(safe_output($password['description'])); ?></td>
 					</tr>
 					<?php $i++; ?>
-					
+
 					<?php if (!empty($custom_field_groups)) { ?>
 						<?php foreach($custom_field_groups as $custom_field_group) { ?>
-							<?php $gfields = $password_custom_fields->get_values(array('password_field_group_id' => $custom_field_group['id'], 'password_id' => (int) $password['id'])); 
+							<?php $gfields = $password_custom_fields->get_values(array('password_field_group_id' => $custom_field_group['id'], 'password_id' => (int) $password['id']));
 							?>
 							<?php if (!empty($gfields) && !empty($gfields[0]['value'])) { ?>
 								<tr <?php if ($i % 2 == 0 ) { echo 'class="switch-1"'; } else { echo 'class="switch-2"'; }; ?>>
 									<td class="centre"><?php echo safe_output($custom_field_group['name']); ?></td>
 									<?php if ($custom_field_group['type'] == 'textinput') { ?>
 										<td class="centre"><?php echo safe_output($gfields[0]['value']); ?></td>
-									<?php } else if ($custom_field_group['type'] == 'textarea') { ?>							
+									<?php } else if ($custom_field_group['type'] == 'textarea') { ?>
 										<td class="centre"><?php echo nl2br(safe_output($gfields[0]['value'])); ?></td>
-									<?php } else if ($custom_field_group['type'] == 'dropdown') { 
+									<?php } else if ($custom_field_group['type'] == 'dropdown') {
 											$set_fields = $password_custom_fields->get_fields(array('password_field_group_id' => $custom_field_group['id']));
 										?>
 										<?php foreach ($set_fields as $gfield) { ?>
@@ -172,9 +172,9 @@ include(core\ROOT . '/user/themes/'. CURRENT_THEME .'/includes/html_header.php')
 								</tr>
 							<?php $i++; ?>
 							<?php }?>
-						<?php } ?>						
+						<?php } ?>
 					<?php } ?>
-									
+
 					<?php
 					foreach($fields as $field) { ?>
 						<tr <?php if ($i % 2 == 0 ) { echo 'class="switch-1"'; } else { echo 'class="switch-2"'; }; ?>>
@@ -184,7 +184,7 @@ include(core\ROOT . '/user/themes/'. CURRENT_THEME .'/includes/html_header.php')
 					<?php $i++; } ?>
 				</table>
 			</div>
-						
+
 			<div class="clear"></div>
 		</div>
 	</div>

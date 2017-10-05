@@ -432,3 +432,15 @@ body {
         background-color: #85d0e7 !important; }
       .navbar-collapse .navbar-nav.navbar-right {
         padding-right: 0; } }
+
+a.copy_value {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url("../../images/icons/clipboard.png");
+    margin-left: 5px;
+
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}

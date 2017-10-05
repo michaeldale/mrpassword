@@ -110,11 +110,11 @@ $(document).ready(function () {
 			var chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 		}
 		else if (type == 2) {
-			var length = 10;
+			var length = 32;
 			var chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 		}
 		else {
-			var length = 16;
+			var length = 32;
 			var chars = '~!@#$%^&*()_+=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 
 		}

@@ -1,0 +1,47 @@
+version: "3.1"
+
+services:
+
+    nginx:
+        build: .docker/nginx
+        image: mrpassword/nginx
+        container_name: mrpassword-nginx
+        links:
+            - php-fpm
+        ports:
+            - "8081:80"
+        volumes:
+            - .:/app
+            - sock:/sock
+        working_dir: /app
+
+    php-fpm:
+        build: .docker/php-fpm-xdebug
+        image: mrpassword/php-fpm-xdebug
+        container_name: mrpassword-php-fpm-xdebug
+        links:
+            - mysql
+        volumes:
+            - .:/app
+            - sock:/sock
+        working_dir: /app
+
+    mysql:
+        build: .docker/mysql
+        image: mrpassword/mysql
+        container_name: mrpassword-mysql
+        environment:
+            - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+            - MYSQL_DATABASE=mrpassword
+            - MYSQL_USER=mrpwduser
+            - MYSQL_PASSWORD=mrpwdsecret
+
+networks:
+
+    default:
+        external:
+            name: mrpassword
+
+volumes:
+
+    sock:

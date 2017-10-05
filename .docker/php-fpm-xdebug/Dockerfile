@@ -3,15 +3,14 @@ FROM php:7.1-fpm-alpine
 # Install persistent dependencies
 RUN apk add --no-cache --virtual .persistent-deps \
     icu-dev \
-    libmcrypt-dev \
-    libsodium-dev \
-    postgresql-dev
+    libmcrypt-dev
 
 # Install build dependencies
 RUN apk add --no-cache --virtual .build-deps \
     autoconf \
     gcc \
     libc-dev \
+    libmcrypt-dev \
     make
 
 # Build
@@ -19,14 +18,11 @@ RUN set -xe \
     && docker-php-ext-install \
         bcmath \
         intl \
-        pdo_pgsql \
+        pdo_mysql \
+        mcrypt \
     && pecl install \
-        libsodium \
-        redis \
         xdebug \
     && docker-php-ext-enable \
-        redis \
-        sodium \
         xdebug \
     && apk del .build-deps
 

@@ -2,10 +2,10 @@ version: "3.1"
 
 services:
 
-    nginx:
-        build: .docker/nginx
-        image: mrpassword/nginx
-        container_name: mrpassword-nginx
+    apache:
+        build: .docker/apache
+        image: mrpassword/apache
+        container_name: mrpassword-apache
         links:
             - php-fpm
         ports:
@@ -33,8 +33,10 @@ services:
         environment:
             - MYSQL_ALLOW_EMPTY_PASSWORD=yes
             - MYSQL_DATABASE=mrpassword
-            - MYSQL_USER=mrpwduser
-            - MYSQL_PASSWORD=mrpwdsecret
+            - MYSQL_USER=mrpassword
+            - MYSQL_PASSWORD=mrpassword
+        ports:
+            - "3306:3306"
 
 networks:
 

@@ -6,12 +6,12 @@
 		<!--[if lte IE 7]>
         <link rel="stylesheet" type="text/css" href="../user/themes/standard/css/ie.css" media="screen" />
 		<![endif]-->
-			
-		
-		<link rel="stylesheet" type="text/css" href="../user/themes/standard/css/reset-min.css" />
+
+
+		<link rel="stylesheet" type="text/css" href="../user/themes/standard/css/reset.css" />
         <link type="text/css" media="screen" href="../user/themes/standard/css/default.css" rel="stylesheet" />
         <link type="text/css" media="screen" href="../user/themes/standard/css/suckerfish.css" rel="stylesheet" />
-		
+
 		<script type="text/javascript" src="../system/libraries/js/jquery.js"></script>
 
     </head>

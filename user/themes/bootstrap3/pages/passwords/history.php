@@ -42,13 +42,13 @@ include(core\ROOT . '/user/themes/'. CURRENT_THEME .'/includes/html_header.php')
 			<div class="pull-left">
 				<h4><?php echo $language->get('History'); ?></h4>
 			</div>
-						
+
 			<div class="pull-right">
 				<a href="<?php echo $config->get('address'); ?>/passwords/view/<?php echo (int) $id; ?>/" class="btn btn-default"><?php echo $language->get('View'); ?></a>
 			</div>
-		
+
 			<div class="clearfix"></div>
-			
+
 		</div>
 	</div>
 
@@ -61,8 +61,8 @@ include(core\ROOT . '/user/themes/'. CURRENT_THEME .'/includes/html_header.php')
 					<a href="<?php echo $config->get('address'); ?>/passwords/history/<?php echo (int) $id; ?>/?action=show_all" class="btn btn-default btn-sm"><?php echo $language->get('Show Passwords'); ?></a>
 				<?php } ?>
 			</p>
-			
-			<div class="table-responsive">		
+
+			<div class="table-responsive">
 				<table class="table table-striped">
 					<tr>
 						<th><?php echo $language->get('Name'); ?></th>
@@ -76,9 +76,9 @@ include(core\ROOT . '/user/themes/'. CURRENT_THEME .'/includes/html_header.php')
 					?>
 					<tr <?php if ($i % 2 == 0 ) { echo 'class="switch-1"'; } else { echo 'class="switch-2"'; }; ?>>
 						<td class="centre"><a href="<?php echo $config->get('address'); ?>/passwords/viewhistory/<?php echo (int) $password['id']; ?>/"><?php echo safe_output($password['name']); ?></a></td>
-						<td class="centre"><?php echo safe_output($password['username']); ?></td>
-						<td class="centre" name="password<?php echo (int) $password['id']; ?>"><?php if ($show_all) { ?><?php echo safe_output($encryption->decrypt($password['password'])); ?><?php } else { ?><a href="#password<?php echo (int) $password['id']; ?>" class="show_password_history" id="id-<?php echo (int) $password['id']; ?>"><?php echo $language->get('Show'); ?></a><?php } ?></td>
-						<td class="centre"><a href="<?php echo $config->get('address'); ?>/passwords/viewhistory/<?php echo (int) $password['id']; ?>/"><?php echo safe_output(time_ago_in_words($password['date_added'])); ?> <?php echo $language->get('ago'); ?></a></td>	
+                        <td class="centre"><span class="content-as-copy-box"><?php echo safe_output($password['username']); ?></span></td>
+                        <td class="centre" name="password<?php echo (int) $password['id']; ?>"><?php if ($show_all) { ?><span class="content-as-copy-box"><?php echo safe_output($encryption->decrypt($password['password'])); ?></span><?php } else { ?><a href="#password<?php echo (int) $password['id']; ?>" class="show_password_history" id="id-<?php echo (int) $password['id']; ?>"><?php echo $language->get('Show'); ?></a><?php } ?></td>
+						<td class="centre"><a href="<?php echo $config->get('address'); ?>/passwords/viewhistory/<?php echo (int) $password['id']; ?>/"><?php echo safe_output(time_ago_in_words($password['date_added'])); ?> <?php echo $language->get('ago'); ?></a></td>
 					</tr>
 					<?php $i++; } ?>
 				</table>

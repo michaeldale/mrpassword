@@ -1,1 +1,5 @@
-.idea
+/.idea/
+/user/settings/.mrp_test_file
+/user/settings/config.php
+/.htaccess
+/.mrp_test_file

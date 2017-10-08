@@ -1,0 +1,49 @@
+version: "3.1"
+
+services:
+
+    apache:
+        build: .docker/apache
+        image: mrpassword/apache
+        container_name: mrpassword-apache
+        links:
+            - php-fpm
+        ports:
+            - "8081:80"
+        volumes:
+            - .:/app
+            - sock:/sock
+        working_dir: /app
+
+    php-fpm:
+        build: .docker/php-fpm-xdebug
+        image: mrpassword/php-fpm-xdebug
+        container_name: mrpassword-php-fpm-xdebug
+        links:
+            - mysql
+        volumes:
+            - .:/app
+            - sock:/sock
+        working_dir: /app
+
+    mysql:
+        build: .docker/mysql
+        image: mrpassword/mysql
+        container_name: mrpassword-mysql
+        environment:
+            - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+            - MYSQL_DATABASE=mrpassword
+            - MYSQL_USER=mrpassword
+            - MYSQL_PASSWORD=mrpassword
+        ports:
+            - "3306:3306"
+
+networks:
+
+    default:
+        external:
+            name: mrpassword
+
+volumes:
+
+    sock:

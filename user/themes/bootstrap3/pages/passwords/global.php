@@ -21,12 +21,12 @@ $access_level = 1;
 if ($id != 0) {
 	$paswd_array['category_id'] = $id;
 	$category_names 		= $categories->get(array('shared_user_id' => $auth->get('id'), 'id' => $id, 'limit' => 1, 'get_other_data' => true, 'global' => 1));
-	
+
 	if (!empty($category_names)) {
 		$category_name 	= $category_names[0]['name'];
-		$access_level 	= (int) $category_names[0]['access_level']; 
+		$access_level 	= (int) $category_names[0]['access_level'];
 	}
-	
+
 }
 
 if (isset($_GET['like_search']) && !empty($_GET['like_search'])) {
@@ -70,19 +70,19 @@ include(core\ROOT . '/user/themes/'. CURRENT_THEME .'/includes/html_header.php')
 					<?php if (isset($category_name)) { echo safe_output($category_name); } else { ?><?php echo $language->get('Global Passwords'); ?><?php } ?> (<?php echo count($passwords_array); ?>)
 				</h4>
 			</div>
-			
+
 			<div class="clearfix"></div>
 
 			<p><?php echo $language->get('This page displays all the passwords stored in the global category.'); ?></p>
 			<br />
-		</div>	
+		</div>
 		<div class="well well-sm">
 			<form method="get" action="<?php echo safe_output($_SERVER['REQUEST_URI']); ?>">
 				<input type="text" class="form-control" placeholder="<?php echo $language->get('Search'); ?>" name="like_search" value="<?php if (isset($like_search_temp)) echo safe_output($like_search_temp); ?>" size="15" />
-	
+
 				<div class="clearfix"></div>
 				<br />
-				
+
 				<label class="left-result"><?php echo $language->get('Sort By'); ?></label>
 				<p class="right-result">
 					<select name="order_by">
@@ -94,16 +94,16 @@ include(core\ROOT . '/user/themes/'. CURRENT_THEME .'/includes/html_header.php')
 					</select>
 				</p>
 				<div class="clearfix"></div>
-				
+
 				<label class="left-result"><?php echo $language->get('Sort Order'); ?></label>
 				<p class="right-result">
 					<select name="order">
 						<option value=""></option>
 						<option value="asc"<?php if ($order_temp == 'asc') echo ' selected="selected"'; ?>><?php echo $language->get('Ascending'); ?></option>
-						<option value="desc"<?php if ($order_temp == 'desc') echo ' selected="selected"'; ?>><?php echo $language->get('Descending'); ?></option>							
+						<option value="desc"<?php if ($order_temp == 'desc') echo ' selected="selected"'; ?>><?php echo $language->get('Descending'); ?></option>
 					</select>
 				</p>
-				<div class="clearfix"></div>					
+				<div class="clearfix"></div>
 				<br />
 				<div class="pull-right">
 					<button type="submit" name="filter" class="btn btn-info"><?php echo $language->get('Filter'); ?></button>
@@ -121,9 +121,9 @@ include(core\ROOT . '/user/themes/'. CURRENT_THEME .'/includes/html_header.php')
 					<li><a href="<?php echo $config->get('address'); ?>/passwords/global/<?php echo (int) $category['id']; ?>/"><?php echo safe_output($category['name']); ?> (<?php echo $category['password_count']; ?>)</a></li>
 				<?php } ?>
 				<li><a href="<?php echo $config->get('address'); ?>/passwords/global/"><?php echo $language->get('All Passwords'); ?></a></li>
-				</ul>	
+				</ul>
 			<?php } ?>
-			
+
 			<h4><span class="glyphicon glyphicon-user"></span> <?php echo $language->get('Personal Categories'); ?> - <?php echo count($categories_array); ?></h4>
 			<?php if (!empty($categories_array)) { ?>
 				<ul>
@@ -156,10 +156,10 @@ include(core\ROOT . '/user/themes/'. CURRENT_THEME .'/includes/html_header.php')
 
 					</div>
 					<div class="clearfix"></div>
-					<br />					
+					<br />
 
-					<p><input class="form-control generate_field" name="password" placeholder="<?php echo $language->get('Password'); ?>" type="text" value="" autocomplete="off" /></p>		
-					
+					<p><input class="form-control generate_field" name="password" placeholder="<?php echo $language->get('Password'); ?>" type="text" value="" autocomplete="off" /></p>
+
 					<div class="btn-group" data-toggle="buttons">
 						<label class="btn btn-primary btn-sm">
 							<input type="radio" name="password_type" id="option1" value="1"> <?php echo $language->get('Easy'); ?>
@@ -168,14 +168,14 @@ include(core\ROOT . '/user/themes/'. CURRENT_THEME .'/includes/html_header.php')
 							<input type="radio" name="password_type" id="option2" value="2"> <?php echo $language->get('Simple'); ?>
 						</label>
 						<label class="btn btn-primary btn-sm default-toggle">
-							<input type="radio" name="password_type" id="option3" value="3" checked="checked"> <?php echo $language->get('Complex'); ?> 
+							<input type="radio" name="password_type" id="option3" value="3" checked="checked"> <?php echo $language->get('Complex'); ?>
 						</label>
-						
+
 					</div>
 					<div class="clearfix"></div>
 					<br />
 					<p><a class="btn btn-info generate_password" href="#"><?php echo $language->get('Generate'); ?></a></p>
-				
+
 				</form>
 			</div>
 		<?php } ?>
@@ -200,8 +200,8 @@ include(core\ROOT . '/user/themes/'. CURRENT_THEME .'/includes/html_header.php')
 			<?php } ?>
 		<?php } ?>
 		</p>
-		
-		<div class="table-responsive">		
+
+		<div class="table-responsive">
 			<table class="table table-striped">
 				<tr>
 					<th><?php echo $language->get('Name'); ?></th>
@@ -216,13 +216,13 @@ include(core\ROOT . '/user/themes/'. CURRENT_THEME .'/includes/html_header.php')
 				<tr <?php if ($i % 2 == 0 ) { echo 'class="switch-1"'; } else { echo 'class="switch-2"'; }; ?>>
 					<td class="centre"><a href="<?php echo $config->get('address'); ?>/passwords/viewglobal/<?php echo (int) $password['id']; ?>/"><?php echo safe_output($password['name']); ?></a></td>
 					<td class="centre"><?php echo safe_output($password['category_name']); ?></td>
-					<td class="centre"><?php echo safe_output($password['username']); ?></td>
-					<td class="centre" name="password<?php echo (int) $password['id']; ?>"><?php if ($show_all) { ?><?php echo safe_output($encryption->decrypt($password['password'])); ?><?php } else { ?><a href="#password<?php echo (int) $password['id']; ?>" class="show_global_password" id="id-<?php echo (int) $password['id']; ?>"><?php echo $language->get('Show'); ?></a><?php } ?></td>
+                    <td class="centre"><span class="content-as-copy-box"><?php echo safe_output($password['username']); ?></span></td>
+                    <td class="centre" name="password<?php echo (int) $password['id']; ?>"><?php if ($show_all) { ?><span class="content-as-copy-box"><?php echo safe_output($encryption->decrypt($password['password'])); ?></span><?php } else { ?><a href="#password<?php echo (int) $password['id']; ?>" class="show_global_password" id="id-<?php echo (int) $password['id']; ?>"><?php echo $language->get('Show'); ?></a><?php } ?></td>
 				</tr>
 				<?php $i++; } ?>
 			</table>
 		</div>
-		
+
 		<div class="clearfix"></div>
 
 

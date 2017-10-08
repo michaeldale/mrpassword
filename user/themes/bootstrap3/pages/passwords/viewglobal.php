@@ -44,22 +44,22 @@ include(core\ROOT . '/user/themes/'. CURRENT_THEME .'/includes/html_header.php')
 			<div class="pull-left">
 				<h4><?php echo $language->get('Global Password'); ?></h4>
 			</div>
-			
+
 			<?php if ($password['access_level'] == 2) { ?>
 			<div class="pull-right">
 				<a href="<?php echo $config->get('address'); ?>/passwords/editglobal/<?php echo (int) $password['id']; ?>/" class="btn btn-default"><?php echo $language->get('Edit'); ?></a>
 			</div>
 			<?php } ?>
-			
+
 			<div class="clearfix"></div>
-			
+
 			<?php if ($password['access_level'] == 2) { ?>
 				<p><?php echo $language->get('To change the password details click edit.'); ?></p>
 			<?php } else { ?>
 				<p><?php echo $language->get('You cannot edit this global password.'); ?></p>
 			<?php } ?>
 			<div class="clearfix"></div>
-			
+
 			<label class="left-result"><?php echo $language->get('Added'); ?></label>
 			<p class="right-result"><?php echo safe_output(time_ago_in_words($password['date_added'])); ?> <?php echo $language->get('ago'); ?></p>
 			<div class="clearfix"></div>
@@ -69,8 +69,8 @@ include(core\ROOT . '/user/themes/'. CURRENT_THEME .'/includes/html_header.php')
 		</div>
 	</div>
 
-	<div class="col-md-9">		
-		<div class="table-responsive">		
+	<div class="col-md-9">
+		<div class="table-responsive">
 			<table class="table table-striped">
 				<tr>
 					<th><?php echo $language->get('Item'); ?></th>
@@ -89,12 +89,12 @@ include(core\ROOT . '/user/themes/'. CURRENT_THEME .'/includes/html_header.php')
 				<?php $i++; ?>
 				<tr <?php if ($i % 2 == 0 ) { echo 'class="switch-1"'; } else { echo 'class="switch-2"'; }; ?>>
 					<td class="centre"><?php echo $language->get('Username'); ?></td>
-					<td class="centre"><?php echo safe_output($password['username']); ?></td>
+                    <td class="centre"><span class="content-as-copy-box"><?php echo safe_output($password['username']); ?></span></td>
 				</tr>
 				<?php $i++; ?>
 				<tr <?php if ($i % 2 == 0 ) { echo 'class="switch-1"'; } else { echo 'class="switch-2"'; }; ?>>
 					<td class="centre"><?php echo $language->get('Password'); ?></td>
-					<td class="centre"><?php echo safe_output($encryption->decrypt($password['password'])); ?></td>
+                    <td class="centre"><span class="content-as-copy-box"><?php echo safe_output($encryption->decrypt($password['password'])); ?></span></td>
 				</tr>
 				<?php $i++; ?>
 				<tr <?php if ($i % 2 == 0 ) { echo 'class="switch-1"'; } else { echo 'class="switch-2"'; }; ?>>
@@ -107,19 +107,19 @@ include(core\ROOT . '/user/themes/'. CURRENT_THEME .'/includes/html_header.php')
 					<td class="centre"><?php echo nl2br(safe_output($password['description'])); ?></td>
 				</tr>
 				<?php $i++; ?>
-				
+
 				<?php if (!empty($custom_field_groups)) { ?>
 					<?php foreach($custom_field_groups as $custom_field_group) { ?>
-						<?php $gfields = $password_custom_fields->get_values(array('password_field_group_id' => $custom_field_group['id'], 'password_id' => (int) $password['id'])); 
+						<?php $gfields = $password_custom_fields->get_values(array('password_field_group_id' => $custom_field_group['id'], 'password_id' => (int) $password['id']));
 						?>
 						<?php if (!empty($gfields) && !empty($gfields[0]['value'])) { ?>
 							<tr <?php if ($i % 2 == 0 ) { echo 'class="switch-1"'; } else { echo 'class="switch-2"'; }; ?>>
 								<td class="centre"><?php echo safe_output($custom_field_group['name']); ?></td>
 								<?php if ($custom_field_group['type'] == 'textinput') { ?>
 									<td class="centre"><?php echo safe_output($gfields[0]['value']); ?></td>
-								<?php } else if ($custom_field_group['type'] == 'textarea') { ?>							
+								<?php } else if ($custom_field_group['type'] == 'textarea') { ?>
 									<td class="centre"><?php echo nl2br(safe_output($gfields[0]['value'])); ?></td>
-								<?php } else if ($custom_field_group['type'] == 'dropdown') { 
+								<?php } else if ($custom_field_group['type'] == 'dropdown') {
 										$set_fields = $password_custom_fields->get_fields(array('password_field_group_id' => $custom_field_group['id']));
 									?>
 									<?php foreach ($set_fields as $gfield) { ?>
@@ -145,9 +145,9 @@ include(core\ROOT . '/user/themes/'. CURRENT_THEME .'/includes/html_header.php')
 							</tr>
 						<?php $i++; ?>
 						<?php }?>
-					<?php } ?>						
+					<?php } ?>
 				<?php } ?>
-				
+
 				<?php
 				foreach($fields as $field) { ?>
 					<tr <?php if ($i % 2 == 0 ) { echo 'class="switch-1"'; } else { echo 'class="switch-2"'; }; ?>>

@@ -1,6 +1,8 @@
 $(document).ready(function () {
 
-	$(".show_password_history").click(function () {
+	$(".show_password_history").click(function (e) {
+		e.preventDefault();
+				
 		var password_id = $(this).attr("id");
 		var password_exploded = password_id.split('-');
 		password_id = password_exploded[1];
@@ -20,7 +22,9 @@ $(document).ready(function () {
 
 	});
 
-	$(".show_password").click(function () {
+	$(".show_password").click(function (e) {
+		e.preventDefault();
+				
 		var password_id = $(this).attr("id");
 		var password_exploded = password_id.split('-');
 		password_id = password_exploded[1];
@@ -40,7 +44,9 @@ $(document).ready(function () {
 
 	});
 
-	$(".show_share_password").click(function () {
+	$(".show_share_password").click(function (e) {
+		e.preventDefault();
+				
 		var password_id = $(this).attr("id");
 		var password_exploded = password_id.split('-');
 		password_id = password_exploded[1];
@@ -60,7 +66,9 @@ $(document).ready(function () {
 
 	});
 
-	$(".show_global_password").click(function () {
+	$(".show_global_password").click(function (e) {
+		e.preventDefault();
+
 		var password_id = $(this).attr("id");
 		var password_exploded = password_id.split('-');
 		password_id = password_exploded[1];
@@ -84,6 +92,7 @@ $(document).ready(function () {
 		var box = $("<div>");
 
 		var input = $("<input>");
+		//input.addClass("form-control");
         input.val(value);
         input.appendTo(box);
         input.prop("readonly", true);
@@ -93,7 +102,9 @@ $(document).ready(function () {
 		copy.addClass("copy_value");
 		copy.attr("alt", "Copy value");
 		copy.data("value", value);
-		copy.html("copy");
+		copy.html('<span class="glyphicon glyphicon-copy"></span>');
+		
+		box.append("&nbsp;");
 		copy.appendTo(box);
 
 		return box;
@@ -186,6 +197,8 @@ $(document).ready(function () {
     });
 
     $('body').on('click', '.copy_value', function(e) {
+		e.preventDefault();
+
         var temp = $("<input>");
         $("body").append(temp);
         temp.val($(this).prev("input").val());
@@ -212,7 +225,7 @@ $(document).ready(function () {
         temp.remove();
     });
 
-    $(".content-as-copy-box").each(function (e) {
+    $(".content-as-copy-box").each(function () {
         $(this).replaceWith(generateCopyBox($(this).text()));
     });
 

@@ -238,7 +238,13 @@ include(core\ROOT . '/user/themes/'. CURRENT_THEME .'/includes/html_header.php')
                         <td class="centre"><a href="<?php echo $config->get('address'); ?>/passwords/view/<?php echo (int) $password['id']; ?>/"><?php echo safe_output($password['name']); ?></a></td>
                         <td class="centre"><?php echo safe_output($password['category_name']); ?></td>
                         <td class="centre"><span class="content-as-copy-box"><?php echo safe_output($password['username']); ?></span></td>
-                        <td class="centre" name="password<?php echo (int) $password['id']; ?>"><?php if ($show_all) { ?><span class="content-as-copy-box"><?php echo safe_output($encryption->decrypt($password['password'])); ?></span><?php } else { ?><a href="#password<?php echo (int) $password['id']; ?>" class="show_password" id="id-<?php echo (int) $password['id']; ?>"><?php echo $language->get('Show'); ?></a><?php } ?></td>
+                        <td class="centre" name="password<?php echo (int) $password['id']; ?>">
+							<?php if ($show_all) { ?>
+								<span class="content-as-copy-box"><?php echo safe_output($encryption->decrypt($password['password'])); ?></span>
+							<?php } else { ?>
+								<a href="#password<?php echo (int) $password['id']; ?>" class="show_password" id="id-<?php echo (int) $password['id']; ?>"><?php echo $language->get('Show'); ?></a>
+							<?php } ?>
+						</td>
                     </tr>
 					<?php $i++; } ?>
 				</table>

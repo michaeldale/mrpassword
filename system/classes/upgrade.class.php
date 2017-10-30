@@ -13,8 +13,8 @@ namespace mrpassword;
 
 class upgrade {
 
-	private $db_version 		= '27';
-	private $program_version 	= '4.0';
+	private $db_version 		= '28';
+	private $program_version 	= '4.1';
 
 	function __construct() {
 	
@@ -850,6 +850,17 @@ class upgrade {
 		
 		$config->set('program_version', '4.0');
 		$config->set('database_version', 27);		
+	}
+	
+	private function dbdv_28() {
+		global $db;
+	
+		$config 	= &singleton::get(__NAMESPACE__ . '\config');	
+		$tables 	= &singleton::get(__NAMESPACE__ . '\tables');
+		$error 		= &singleton::get(__NAMESPACE__ . '\error');
+		
+		$config->set('program_version', '4.1');
+		$config->set('database_version', 28);		
 	}
 	
 }

@@ -1,41 +1,70 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>Dalegroup MrP</title>
-		<!--[if lte IE 7]>
-        <link rel="stylesheet" type="text/css" href="../user/themes/standard/css/ie.css" media="screen" />
-		<![endif]-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Dalegroup MrP</title>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
-		<link rel="stylesheet" type="text/css" href="../user/themes/standard/css/reset.css" />
-        <link type="text/css" media="screen" href="../user/themes/standard/css/default.css" rel="stylesheet" />
-        <link type="text/css" media="screen" href="../user/themes/standard/css/suckerfish.css" rel="stylesheet" />
+	<!-- Core theme -->
+    <link href="../user/themes/bootstrap3/core6/css/bootstrap.css" rel="stylesheet">
+    <link href="../user/themes/bootstrap3/code6/css/responsive-tables.css" rel="stylesheet">
 
-		<script type="text/javascript" src="../system/libraries/js/jquery.js"></script>
+    <link href="../user/themes/bootstrap3/code6/css/font-awesome.min.css" rel="stylesheet">
 
-    </head>
-    <body>
-        <div class="left-border">
-            <div class="right-border">
-                <div class="page-wrapper">
-                    <div id="header">
+	<link href="../user/themes/bootstrap3/core6/stylesheets/theme.css" rel="stylesheet">
+	
+	<link href="../user/themes/bootstrap3/core6/stylesheets/theme-custom.css" rel="stylesheet">
+	
+    <script type="text/javascript" src="../system/libraries/js/jquery.js"></script>
+	
+	
+	<script src="../user/themes/bootstrap3/core6/js/autocollapse.js" rel="stylesheet"></script>
+    <script type="text/javascript" src="../user/themes/bootstrap3/core6/js/masonry.js"></script>
+    <script type="text/javascript" src="../user/themes/bootstrap3/core6/js/bootstrap.min.js"></script>
 
-                        <div id="header-design">
-                            <div id="logo-image">
-                                <h1>Dalegroup Pty Ltd</h1>
-                            </div>
-                            <!--<div id="header-right">
-                                <p id="welcome-text">Welcome Text</p>
-								<a href="" class="button logout">Logout Text</a>
-                                <div class="clear"></div>
-                            </div>-->
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                    <div id="menu">
-                        <ul  id="nav">
-                            <li class="first_item"><a href="index.php"><span>Home</span></a></li>
-                        </ul>
-                        <div class="clear"></div>
-                    </div>
+	
+    <script type="text/javascript" src="../system/libraries/js/respond.min.js"></script>
+
+    <link rel="stylesheet" href="../system/libraries/select2/select2.css" />
+    <script type="text/javascript" src="../system/libraries/select2/select2.min.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function () {
+        //Custom Selectmenu
+        $('select').select2({ width: 'resolve' });
+
+        //tooltip
+        $(".glyphicon-question-sign").tooltip({html: true});
+
+        //popover
+        $('.popover-item').popover().click(function(e){e.preventDefault();});
+
+    });
+    </script>
+
+</head>
+
+<body>
+    <nav id="autocollapse" class="navbar navbar-default navbar-fixed-top" role="navigation">
+
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.php">MrP</a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="index.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+
+    </nav>
+
+    <div class="container">

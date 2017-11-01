@@ -2,7 +2,7 @@ $(document).ready(function () {
 
 	$(".show_password_history").click(function (e) {
 		e.preventDefault();
-				
+
 		var password_id = $(this).attr("id");
 		var password_exploded = password_id.split('-');
 		password_id = password_exploded[1];
@@ -14,7 +14,7 @@ $(document).ready(function () {
 			type: "GET",
 			url:  mrp_base_url + "/passwords/gethistory/" + password_id,
 			success: function(html){
-                $('#id-' + password_id).replaceWith(generateCopyBox(html));
+                $('#id-' + password_id).replaceWith(generateCopyBox(htmlEntityDecode(html)));
 			}
 
 
@@ -24,7 +24,7 @@ $(document).ready(function () {
 
 	$(".show_password").click(function (e) {
 		e.preventDefault();
-				
+
 		var password_id = $(this).attr("id");
 		var password_exploded = password_id.split('-');
 		password_id = password_exploded[1];
@@ -36,7 +36,7 @@ $(document).ready(function () {
 			type: "GET",
 			url:  mrp_base_url + "/passwords/get/" + password_id,
 			success: function(html){
-                $('#id-' + password_id).replaceWith(generateCopyBox(html));
+                $('#id-' + password_id).replaceWith(generateCopyBox(htmlEntityDecode(html)));
 			}
 
 
@@ -46,7 +46,7 @@ $(document).ready(function () {
 
 	$(".show_share_password").click(function (e) {
 		e.preventDefault();
-				
+
 		var password_id = $(this).attr("id");
 		var password_exploded = password_id.split('-');
 		password_id = password_exploded[1];
@@ -58,7 +58,7 @@ $(document).ready(function () {
 			type: "GET",
 			url:  mrp_base_url + "/passwords/getshare/" + password_id,
 			success: function(html){
-                $('#id-' + password_id).replaceWith(generateCopyBox(html));
+                $('#id-' + password_id).replaceWith(generateCopyBox(htmlEntityDecode(html)));
 			}
 
 
@@ -80,7 +80,7 @@ $(document).ready(function () {
 			type: "GET",
 			url:  mrp_base_url + "/passwords/getglobal/" + password_id,
 			success: function(html){
-                $('#id-' + password_id).replaceWith(generateCopyBox(html));
+                $('#id-' + password_id).replaceWith(generateCopyBox(htmlEntityDecode(html)));
 			}
 
 
@@ -103,7 +103,7 @@ $(document).ready(function () {
 		copy.attr("alt", "Copy value");
 		copy.data("value", value);
 		copy.html('<span class="glyphicon glyphicon-copy"></span>');
-		
+
 		box.append("&nbsp;");
 		copy.appendTo(box);
 
@@ -121,6 +121,10 @@ $(document).ready(function () {
 
 
 	});
+
+	var htmlEntityDecode = function (html) {
+	    return $("<textarea />").html(html).text();
+    };
 
 	var generatePassword = function (type) {
 
